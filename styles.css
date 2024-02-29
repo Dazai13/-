@@ -1,0 +1,60 @@
+.container{
+    margin: 0 auto;  
+}
+.table {
+    width: 100%;
+    margin: 0 auto;         
+    max-width: 100%;    
+}
+
+td {
+    padding: 10px;
+    border: 1px solid black;
+    width: calc(100% / 7);
+    box-sizing: border-box;
+    text-align: center;
+}
+.slider-wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-height: 600px;
+    margin: 0 auto;
+    overflow: hidden;
+  }
+  
+  .slider-inner {
+    width: 100%;
+    height: auto;
+  }
+  
+  .slider {
+    display: flex;
+    flex-wrap: nowrap;
+  }
+  
+  .carousel {
+    white-space: nowrap;
+    transition: transform 0.5s ease;
+  }
+  
+  table {
+    width: 100%;
+  }
+  
+  td {
+    padding: 10px;
+    border: 1px solid black;
+    width: calc(100% / 8);
+    box-sizing: border-box;
+  }
+
+/*Крестик*/
+[id^='clearIcon'] {
+    cursor: pointer;
+    display: none;
+}
+
+[id^='clearIcon']:hover {
+    opacity: 0.5;
+}

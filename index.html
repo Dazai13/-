@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Моя HTML страница</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header__inner">
+                <table class="table">
+                    <tr>
+                        <td>Дата от</td>
+                        <td>Дата до</td>
+                        <td><button onclick="showPopup()">ADD A NEW ONE</button></td>
+                        <td><button onclick="clearFields()">DESELECT</button></td>
+                        <td>In total</td>
+                        <td><button onclick="exportData()">Export</button></td>
+                        <td><input type="file" id="xmlFileInput" accept=".xml">
+                            <button onclick="importContent()">Import</button></td>
+                    </tr>
+                </table>                
+            </div>
+        </div>
+    </header>
+
+    <div class="slider-wrapper">
+        <div class="slider-inner">
+            <div class="navigation">
+                <button onclick="prevSlide()">Prev</button>
+                <button onclick="goToSlide(0)">1</button>
+                <button onclick="goToSlide(1)">2</button>
+                <button onclick="goToSlide(2)">3</button>
+                <button onclick="nextSlide()">Next</button>
+            </div>
+            <div class="slider">
+                <div class="carousel">
+                    <table class="main__table">
+                        <tr>
+                            <td>Ячейка 1</td>
+                            <td>Ячейка 2</td>
+                            <td>Ячейка 3</td>
+                            <td>Ячейка 1</td>
+                            <td>Ячейка 2</td>
+                            <td>Ячейка 3</td>
+                            <td>Ячейка 1</td>
+                            <td>Ячейка 1</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="text" id="searchInput1" placeholder="Поиск">
+                                <span id="clearIcon1" onclick="clearSearch(1)">&#10006;</span>
+                            </td>
+                            <td>
+                                <input type="text" id="searchInput2" placeholder="Поиск">
+                                <span id="clearIcon2" onclick="clearSearch(2)">&#10006;</span>
+                            </td>
+                            <td>
+                                <input type="text" id="searchInput3" placeholder="Поиск">
+                                <span id="clearIcon3" onclick="clearSearch(3)">&#10006;</span>
+                            </td>
+                            <td>
+                                <input type="text" id="searchInput4" placeholder="Поиск">
+                                <span id="clearIcon4" onclick="clearSearch(4)">&#10006;</span>
+                            </td>
+                            <td>
+                                <input type="text" id="searchInput5" placeholder="Поиск">
+                                <span id="clearIcon5" onclick="clearSearch(5)">&#10006;</span>
+                            </td>
+                            <td>
+                                <input type="text" id="searchInput6" placeholder="Поиск">
+                                <span id="clearIcon6" onclick="clearSearch(6)">&#10006;</span>
+                            </td>
+                            <td>
+                                <input type="text" id="searchInput7" placeholder="Поиск">
+                                <span id="clearIcon7" onclick="clearSearch(7)">&#10006;</span>
+                            </td>
+                            <td>
+                                <input type="text" id="searchInput8" placeholder="Поиск">
+                                <span id="clearIcon8" onclick="clearSearch(8)">&#10006;</span>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="navigation">
+            <button onclick="prevSlide()">Prev</button>
+            <button onclick="goToSlide(0)">1</button>
+            <button onclick="goToSlide(1)">2</button>
+            <button onclick="goToSlide(2)">3</button>
+            <button onclick="nextSlide()">Next</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
