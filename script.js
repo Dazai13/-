@@ -5,27 +5,124 @@ window.addEventListener('beforeunload', function(event) {
     localStorage.setItem('cursorY', event.clientY);
   });
 
-/*Слайде*/
-var slider = document.querySelector(".slider");
-var carousel = document.querySelector(".carousel");
-var slideWidth = carousel.offsetWidth;
+/*Распаковка XML файла*/
 
-function goToSlide(index) {
-    carousel.style.transform = "translateX(" + (-slideWidth * index) + "px)";
+function importXml() {
+    var xmlFileInput = document.getElementById("xmlFileInput");
+    var files = xmlFileInput.files;
+  
+    for (var i = 0; i < files.length; i++) {
+      var file = files[i];
+      var reader = new FileReader();
+  
+      reader.onload = function(e) {
+        var xmlContent = e.target.result;
+        var decoder = new TextDecoder("windows-1251");
+        var xmlDecoded = decoder.decode(new Uint8Array(xmlContent));
+  
+        var parser = new DOMParser();
+        var xmlDoc = parser.parseFromString(xmlDecoded, "text/xml");
+  
+        var rows = xmlDoc.getElementsByTagName("ROW");
+        var tableBody = document.getElementById("data-table").getElementsByTagName("tbody")[0];
+  
+        for (var j = 0; j < rows.length; j++) {
+          var row = rows[j];
+  
+          var schetnomer = getXmlValue(row, "SCHETNOMER");
+          var schetdata = getXmlValue(row, "SCHETDATA");
+          var innkomban = getXmlValue(row, "INNKOMPAN");
+          var nazvkomban = getXmlValue(row, "NAZVKOMPAN");
+          var telef = getXmlValue(row, "TELEF");
+          var elpocht = getXmlValue(row, "ELPOCHTA");
+          var elpochtakadrovik = getXmlValue(row, "ELPOCHTAKADROVIK");
+          var vaknazv = getXmlValue(row, "VAKNAZV");
+          var zarpl = getXmlValue(row, "ZARPL");
+          var filename = file.name;
+  
+          // Проверка наличия номера и даты счета
+          if (!schetnomer || !schetdata) {
+            continue; // Пропуск записи без номера или даты счета
+          }
+  
+          // Проверка на совпадение по совокупности тегов
+          var duplicateEntry = checkDuplicateEntry(schetnomer, vaknazv, zarpl);
+  
+          // Если нет повтора, добавляем контент в таблицу
+          if (!duplicateEntry) {
+            var newRow = document.createElement("tr");
+  
+            var schetCell = document.createElement("td");
+            schetCell.textContent = schetnomer + " / " + schetdata;
+  
+            var innkombanCell = document.createElement("td");
+            innkombanCell.textContent = innkomban;
+  
+            var nazvkombanCell = document.createElement("td");
+            nazvkombanCell.textContent = nazvkomban;
+  
+            var telefCell = document.createElement("td");
+            telefCell.textContent = telef;
+  
+            var elpochtCell = document.createElement("td");
+            elpochtCell.textContent = elpochtakadrovik ? elpochtakadrovik : elpocht;
+  
+            var vaknazvCell = document.createElement("td");
+            vaknazvCell.textContent = vaknazv;
+  
+            var filenameCell = document.createElement("td");
+            filenameCell.textContent = filename;
+  
+            newRow.appendChild(schetCell);
+            newRow.appendChild(innkombanCell);
+            newRow.appendChild(nazvkombanCell);
+            newRow.appendChild(telefCell);
+            newRow.appendChild(elpochtCell);
+            newRow.appendChild(vaknazvCell);
+            newRow.appendChild(filenameCell);
+  
+            tableBody.appendChild(newRow);
+          }
+        }
+      };
+  
+      reader.readAsArrayBuffer(file);
+    }
+  }
+  
+  
+  
+  // Функция для получения значения из xml тега
+  function getXmlValue(element, tagName) {
+    var elements = element.getElementsByTagName(tagName);
+    if (elements.length > 0) {
+      return elements[0].textContent;
+    }
+    return "";
+  }
+  
+  // Функция для проверки наличия дубликата в таблице
+  function checkDuplicateEntry(schetnomer, vaknazv, zarpl) {
+    var rows = document.getElementById("data-table").getElementsByTagName("tbody")[0].getElementsByTagName("tr");
+  
+    for (var i = 0; i < rows.length; i++) {
+      var row = rows[i];
+  
+      var existingSchetnomer = row.getElementsByTagName("td")[0].textContent.split('')[0];
+      var existingVaknazv = row.getElementsByTagName("td")[5].textContent;
+      var existingZarpl = row.getElementsByTagName("td")[6].textContent;
+  
+      if (existingSchetnomer === schetnomer && existingVaknazv === vaknazv && existingZarpl === zarpl) {
+        return true;
+      }
+    }
+  
+    return false;
+
 }
 
-function prevSlide() {
-    var currentIndex = Math.abs(carousel.style.transform) / slideWidth;
-    var prevIndex = currentIndex > 0 ? currentIndex - 1 : 0;
-    goToSlide(prevIndex);
-}
+document.getElementById("importXmlButton").addEventListener("click", importXml);
 
-function nextSlide() {
-    var currentIndex = Math.abs(carousel.style.transform) / slideWidth;
-    var slidesCount = carousel.children.length / 2; // Учитываем количество строк в таблице
-    var nextIndex = currentIndex < slidesCount - 1 ? currentIndex + 1 : slidesCount - 1;
-    goToSlide(nextIndex);
-}
 /*Кнопка DESELECT (Пункт 6)*/
 function clearFields() {
     var inputs = document.getElementsByTagName("input");
@@ -106,4 +203,3 @@ function clearSearch(index) {
     input.value = "";
     clearIcon.style.display = "none";
 }
-

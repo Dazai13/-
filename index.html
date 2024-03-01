@@ -16,14 +16,14 @@
                         <td><button onclick="clearFields()">DESELECT</button></td>
                         <td>In total</td>
                         <td><button onclick="exportData()">Export</button></td>
-                        <td><input type="file" id="xmlFileInput" accept=".xml">
-                            <button onclick="importContent()">Import</button></td>
+                        <td> <input type="file" id="xmlFileInput">
+                            <button id="importXmlButton">Import XML</button></button>
+                        </td>
                     </tr>
                 </table>                
             </div>
         </div>
     </header>
-
     <div class="slider-wrapper">
         <div class="slider-inner">
             <div class="navigation">
@@ -35,16 +35,17 @@
             </div>
             <div class="slider">
                 <div class="carousel">
-                    <table class="main__table">
+                    <table id="data-table">
+                        <thead>
                         <tr>
-                            <td>Ячейка 1</td>
-                            <td>Ячейка 2</td>
-                            <td>Ячейка 3</td>
-                            <td>Ячейка 1</td>
-                            <td>Ячейка 2</td>
-                            <td>Ячейка 3</td>
-                            <td>Ячейка 1</td>
-                            <td>Ячейка 1</td>
+                            <th>номер</th>
+                            <th>НОМЕР И ДАТА СЧЕТА</th>
+                            <th>INNKOMPAN</th>
+                            <th>NAZVKOMPAN</th>
+                            <th>TELEF</th>
+                            <th>ELPOCHTA</th>
+                            <th>АКТИВНЫЕ ВАКАНСИИ</th>
+                            <th>ИСТОЧНИК ОБЪЯВЛЕНИЯ</th>
                         </tr>
                         <tr>
                             <td>
@@ -80,6 +81,11 @@
                                 <span id="clearIcon8" onclick="clearSearch(8)">&#10006;</span>
                             </td>
                         </tr>
+                        </thead>
+
+                        <tbody>
+
+                        </tbody>
                     </table>
                 </div>
             </div>
@@ -91,7 +97,7 @@
             <button onclick="goToSlide(2)">3</button>
             <button onclick="nextSlide()">Next</button>
         </div>
-    </div>
-    <script src="script.js"></script>
-</body>
+    </div>     
+    <script src = "script.js"></script>
+    </body>
 </html>
