@@ -7,21 +7,22 @@
 <body>
     <header class="header">
         <div class="container">
-            <div class="header__inner">
-                <table class="table">
-                    <tr>
-                        <td>Дата от</td>
-                        <td>Дата до</td>
-                        <td><button onclick="showPopup()">ADD A NEW ONE</button></td>
-                        <td><button onclick="clearFields()">DESELECT</button></td>
-                        <td>In total</td>
-                        <td><button onclick="exportData()">Export</button></td>
-                        <td> <input type="file" id="xmlFileInput">
-                            <button id="importXmlButton">Import XML</button></button>
-                        </td>
-                    </tr>
-                </table>                
-            </div>
+          <div class="header__inner">
+            <table class="header__table">
+              <tr>
+                <td>Дата от: <span class = "earliestDate" id="earliestDate"></span></td>
+                <td>Дата до: <span class = "latestDate" id="latestDate"></span></td>
+                <td><button class="button add-button" onclick="showAddPopup()">ADD A NEW ONE</button>></td>
+                <td><button class = "AddNew" onclick="clearFields()">DESELECT</button></td>
+                <td>In Total</td>
+                <td><button class="button export-button" onclick="showExportPopup()">EXPORT</button></td>
+                <td>
+                  <button class="button import-button" onclick="showImportPopup()">IMPORT</button>
+
+                </td>
+              </tr>
+            </table>
+          </div>
         </div>
     </header>
     <div class="slider-wrapper">
@@ -37,16 +38,15 @@
                 <div class="carousel">
                     <table id="data-table">
                         <thead>
-                        <tr>
-                            <th>номер</th>
-                            <th>НОМЕР И ДАТА СЧЕТА</th>
-                            <th>INNKOMPAN</th>
-                            <th>NAZVKOMPAN</th>
-                            <th>TELEF</th>
-                            <th>ELPOCHTA</th>
-                            <th>АКТИВНЫЕ ВАКАНСИИ</th>
-                            <th>ИСТОЧНИК ОБЪЯВЛЕНИЯ</th>
-                        </tr>
+                            <tr>
+                                <th><a href="#" onclick="handleSort(0)">НОМЕР И ДАТА СЧЕТА</a></th>
+                                <th><a href="#" onclick="handleSort(1)">INNKOMPAN</a></th>
+                                <th><a href="#" onclick="handleSort(2)">NAZVKOMPAN</a></th>
+                                <th><a href="#" onclick="handleSort(3)">TELEF</a></th>
+                                <th><a href="#" onclick="handleSort(4)">ELPOCHTA</a></th>
+                                <th><a href="#" onclick="handleSort(5)">АКТИВНЫЕ ВАКАНСИИ</a></th>
+                                <th><a href="#" onclick="handleSort(6)">ИСТОЧНИК ОБЪЯВЛЕНИЯ</a></th>
+                              </tr>
                         <tr>
                             <td>
                                 <input type="text" id="searchInput1" placeholder="Поиск">
@@ -93,7 +93,27 @@
             <button onclick="goToSlide(2)">3</button>
             <button onclick="nextSlide()">Next</button>
         </div>
-    </div>     
+    </div>  
+    
+    <div id="importPopup" class="popup">
+        <button class="close-button" onclick="hidePopup('importPopup')">x</button>
+        <h2>Import Popup</h2>
+        <input type="file" id="xmlFileInput" />
+        <button id="importXmlButton" onclick="importXml()">Import</button>
+      </div>
+      
+      <div id="exportPopup" class="popup">
+        <button class="close-button" onclick="hidePopup('exportPopup')">x</button>
+        <h2>Export Popup</h2>
+        <!-- Дополнительное содержимое попапа для экспорта -->
+      </div>
+      
+      <div id="addPopup" class="popup">
+        <button class="close-button" onclick="hidePopup('addPopup')">x</button>
+        <h2>Add Popup</h2>
+        <!-- Дополнительное содержимое попапа для добавления -->
+      </div>
+
     <script src = "script.js"></script>
     </body>
 </html>
