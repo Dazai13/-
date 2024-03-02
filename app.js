@@ -244,3 +244,23 @@ function updateRowCount() {
     var rowCount = document.getElementById("data-table").getElementsByTagName("tbody")[0].getElementsByTagName("tr").length;
     rowCountElement.textContent = rowCount;
   }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  const menu = document.querySelector('select');
+
+  menu.addEventListener('change', (event) => {
+    const selectedOption = event.target.value;
+    console.log(selectedOption);
+  });

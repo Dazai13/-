@@ -29,6 +29,9 @@ body {
   color: #9c9c9c;
   font-size: 18px;
 }
+input{
+  padding: 0;
+}
 .header__table__content span {
   margin-right: 0.5em; 
 }
@@ -140,6 +143,138 @@ body {
   font-size: 18px;
   border: 1px solid #CBCBCB;
 }
+/*Filter Table*/
+.filter__table{
+  width: 100%;
+  margin-top: 23px;
+}
+.filter__table__inner{
+  width: 1700px;
+  margin:0 110px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.filter__content{
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+}
+.filter__title{
+  font-weight: 400;
+  color: #414141;
+  margin-bottom: 10px;
+  font-size: 20px;
+}
+.filter__form{
+  display: flex;
+  text-align: left;
+  align-items: center;
+  border: 1px solid #c1c1c1;
+  padding: 10px;
+  width: 536px;
+  height: 54px;
+  color: #D11521;
+}
+.filter__inner{
+  background-color: white;
+  color: black;
+  border: none;
+  cursor: pointer;
+}
+select {
+  width: 534px;
+  height: 54px;
+  padding: 10px;
+  background-color: #fff;
+  border: 1px solid #c1c1c1;
+  font-size: 20px;
+  color: #202020;
+  font-weight: 400;
+}
+/*Main table*/
+/*Slider*/
+.slider-wrapper{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+.navigation {
+  display: flex;
+  width: 1700px;
+  align-items: center;
+  justify-content: space-between;
+  margin:40px 0 0;
+}
+.navigation div {
+  display: flex;
+  align-items: center;
+  margin: 0 5px;
+  cursor: pointer;
+}
+.page-numbers span.active {
+  background-color: dodgerblue;
+  color: white;
+}
+.go-to-page {
+  margin-left: 10px;
+  width: 30%;
+}
+.go-to-page input {
+  width: 76px;
+  height: 54px;
+  border: 2px solid #00B0D9;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 400;
+  color: #414141;
+  margin-right: 15px;
+}
+.nav__title{
+  font-size: 18px;
+  font-weight: 400;
+  color: #414141;
+  margin-right: 15px;
+}
+.go-to-page button {
+  width: 76px;
+  height: 54px;
+  border: 2px solid #00B0D9;
+  text-align: center;
+  background-color: #fff;
+  color: #00B0D9;
+  font-size: 20px;
+  font-weight: 500;
+}
+/*Table*/
+.table__title{
+  display: flex;
+  width: 1700px;
+  color: #414141;
+  font-size: 26px;
+  font-weight: 500;
+  margin:40px 0 30px;
+}
+.slider{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.carousel{
+  width: 1700px;
+  height: 690px;
+}
+#data-table, tr, td, th{
+  border: 2px solid #CBCBCB;
+  border-collapse: collapse;
+  font-size: 20px;
+  font-weight: 400;
+  color: #1E1E1E;
+}
+
+
+
 
 
 [id^="clearIcon"] {

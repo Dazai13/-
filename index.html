@@ -58,19 +58,72 @@
 
     <!--Filter Table-->
 
+    <div class="filter__table">
+        <div class="container">
+            <div class="filter__table__inner">
+                <div class = "filter__content">
+                    <div class="filter__title">
+                        Статистика по новым
+                    </div>
+                    <div class="filter__inner">
+                        <select>
+                            <option value="option1">Месяц</option>
+                            <option value="option2">Год</option>
+                            <option value="option3">Пять лет</option>
+                        </select>
+                    </div>
+                </div>
+                <div class = "filter__content">
+                    <div class="filter__title">
+                        Регион контрагента
+                    </div>
+                    <div class="filter__inner">
+                        <select>
+                            <option value="option1">Москва</option>
+                            <option value="option2">Питер</option>
+                            <option value="option3">Уфа</option>
+                        </select>
+                    </div>                   
+                </div>
+                <div class = "filter__content">
+                    <div class="filter__title">
+                        Всего новых
+                    </div>
+                    <div class="filter__inner">
+                        <div class="filter__form">
+                            <p>29293</p>
+                        </div>
+                    </div>                    
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!--Table-->
 
     <div class="slider-wrapper">
-        <div class="slider-inner">
-          <div class="navigation">
-            <button onclick="prevSlide()">Prev</button>
-            <button onclick="goToSlide(0)">1</button>
-            <button onclick="goToSlide(1)">2</button>
-            <button onclick="goToSlide(2)">3</button>
-            <button onclick="nextSlide()">Next</button>
-          </div>
-          <div class="slider">
+        <div class="navigation">
+            <div class="go-to-page">
+                <p class = "nav__title">Укажите страницу</p>
+                <input type="text" id="page-input" placeholder="№">
+                <button onclick="goToPage()">Go</button>
+            </div>
+            <div class="prev-arrow">&lt;</div>
+            <div class="page-numbers">
+                <span>first</span>
+                <span class="active">1</span>
+                <span>2</span>
+                <span>3</span>
+                <span>4</span>
+                <span>5</span>
+                <span>next</span>
+            </div>
+            <div class="next-arrow">&gt;</div>
+        </div>        
+        <div class = "table__title">
+            Журнал компаний
+        </div>
+        <div class="slider">
             <div class="carousel">
               <table id="data-table">
                 <thead>
@@ -119,16 +172,26 @@
                 </tbody>
               </table>
             </div>
-          </div>
-        </div>
+        </div>  
         <div class="navigation">
-          <button onclick="prevSlide()">Prev</button>
-          <button onclick="goToSlide(0)">1</button>
-          <button onclick="goToSlide(1)">2</button>
-          <button onclick="goToSlide(2)">3</button>
-          <button onclick="nextSlide()">Next</button>
+            <div class="go-to-page">
+                <p class = "nav__title">Укажите страницу</p>
+                <input type="text" id="page-input" placeholder="№">
+                <button onclick="goToPage()">Go</button>
+            </div>
+            <div class="prev-arrow">&lt;</div>
+            <div class="page-numbers">
+                <span>first</span>
+                <span class="active">1</span>
+                <span>2</span>
+                <span>3</span>
+                <span>4</span>
+                <span>5</span>
+                <span>next</span>
+            </div>
+            <div class="next-arrow">&gt;</div>
         </div>
-      </div>
+    </div>
     
     <!--Popup's-->
 
