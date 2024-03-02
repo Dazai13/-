@@ -67,6 +67,10 @@ body {
   text-transform: uppercase;
   font-weight: bold;
 }
+#rowCountValue {
+  margin-left: 5px;
+  margin-right: 5px;
+}
 /*Popup's*/
 .popup {
   display: none;

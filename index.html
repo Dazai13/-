@@ -32,9 +32,20 @@
                             <td>
                                 <button class="button add-new-button" onclick="clearFields()">DESELECT</button>
                             </td>
-                            <td><div class="header__table__content">In Total</div></td>
-                            <td><button class="button export-button" onclick="showExportPopup()">EXPORT</button></td>
-                            <td><button class="button import-button" onclick="showImportPopup()">IMPORT</button></td>
+                            <td>
+                                <div class="header__table__content">
+                                  In Total
+                                  <p id="rowCount">
+                                    <span id="rowCountValue">0</span>
+                                  </p>
+                                </div>
+                              </td>
+                            <td>
+                                <button class="button export-button" onclick="showExportPopup()">EXPORT</button>
+                            </td>
+                            <td>
+                                <button class="button import-button" onclick="showImportPopup()">IMPORT</button>
+                            </td>
                         </tr>
                     </tbody>
                 </table>
@@ -130,7 +141,7 @@
       <div id="addPopup" class="popup">
         <button class="close-button" onclick="hidePopup('addPopup')">x</button>
         <h2>Add Popup</h2>
-          </div>
+      </div>
 
     <script src = "script.js"></script>
     </body>
