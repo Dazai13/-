@@ -240,56 +240,6 @@ addColumnSortListeners();
   
 /*Распаковка XML файла*/
 
-// Обработчик клика по гиперссылке
-function handleLinkClick(event) {
-  event.preventDefault();
-
-  // Получение контента из атрибута data-content
-  var content = this.getAttribute("data-content");
-
-  // Получение поля быстрого поиска
-  var searchInput = document.getElementById("searchInput");
-
-  // Разделение содержимого поля быстрого поиска по запятым
-  var searchValues = searchInput.value.split(",");
-
-  // Удаление контента из списка значений
-  var newSearchValues = searchValues.filter(function(value) {
-    return value.trim() !== content;
-  });
-
-  // Обновление значения поля быстрого поиска
-  searchInput.value = newSearchValues.join(",");
-
-  // Обновление фильтрации таблицы
-  handleSearch();
-}
-
-// Обработчик поиска и фильтрации таблицы
-function handleSearch() {
-  var searchInput = document.getElementById("searchInput");
-  var searchText = searchInput.value.toLowerCase();
-
-  var tableRows = document.querySelectorAll("#data-table tbody tr");
-
-  tableRows.forEach(function(row) {
-    var rowVisible = false;
-    var cells = row.getElementsByTagName("td");
-
-    for (var i = 0; i < cells.length; i++) {
-      var cell = cells[i];
-      var cellText = cell.textContent.toLowerCase();
-
-      if (cellText.includes(searchText)) {
-        rowVisible = true;
-        break;
-      }
-    }
-
-    row.style.display = rowVisible ? "" : "none";
-  });
-}
-
 function importXml() {
   var xmlFileInput = document.getElementById("xmlFileInput");
   var files = xmlFileInput.files;
