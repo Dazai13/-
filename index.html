@@ -5,96 +5,115 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+
+    <!--Header-->
+
     <header class="header">
         <div class="container">
-          <div class="header__inner">
-            <table class="header__table">
-              <tr>
-                <td>Дата от: <span class = "earliestDate" id="earliestDate"></span></td>
-                <td>Дата до: <span class = "latestDate" id="latestDate"></span></td>
-                <td><button class="button add-button" onclick="showAddPopup()">ADD A NEW ONE</button>></td>
-                <td><button class = "AddNew" onclick="clearFields()">DESELECT</button></td>
-                <td>In Total</td>
-                <td><button class="button export-button" onclick="showExportPopup()">EXPORT</button></td>
-                <td>
-                  <button class="button import-button" onclick="showImportPopup()">IMPORT</button>
-
-                </td>
-              </tr>
-            </table>
-          </div>
-        </div>
-    </header>
-    <div class="slider-wrapper">
-        <div class="slider-inner">
-            <div class="navigation">
-                <button onclick="prevSlide()">Prev</button>
-                <button onclick="goToSlide(0)">1</button>
-                <button onclick="goToSlide(1)">2</button>
-                <button onclick="goToSlide(2)">3</button>
-                <button onclick="nextSlide()">Next</button>
-            </div>
-            <div class="slider">
-                <div class="carousel">
-                    <table id="data-table">
-                        <thead>
-                            <tr>
-                                <th><a href="#" onclick="handleSort(0)">НОМЕР И ДАТА СЧЕТА</a></th>
-                                <th><a href="#" onclick="handleSort(1)">INNKOMPAN</a></th>
-                                <th><a href="#" onclick="handleSort(2)">NAZVKOMPAN</a></th>
-                                <th><a href="#" onclick="handleSort(3)">TELEF</a></th>
-                                <th><a href="#" onclick="handleSort(4)">ELPOCHTA</a></th>
-                                <th><a href="#" onclick="handleSort(5)">АКТИВНЫЕ ВАКАНСИИ</a></th>
-                                <th><a href="#" onclick="handleSort(6)">ИСТОЧНИК ОБЪЯВЛЕНИЯ</a></th>
-                              </tr>
+            <div class="header__inner">
+                <table class="header__table">
+                    <tbody class="header__table__body">
                         <tr>
                             <td>
-                                <input type="text" id="searchInput1" placeholder="Поиск">
-                                <span id="clearIcon1" onclick="clearSearch(1)">&#10006;</span>
+                                <div class="header__table__content">
+                                    <span>Дата от:</span>
+                                    <span class="earliestDate" id="earliestDate"></span>
+                                </div>
                             </td>
                             <td>
-                                <input type="text" id="searchInput2" placeholder="Поиск">
-                                <span id="clearIcon2" onclick="clearSearch(2)">&#10006;</span>
+                                <div class="header__table__content">
+                                    <span>Дата до:</span>
+                                    <span class="latestDate" id="latestDate"></span>
+                                </div>
                             </td>
                             <td>
-                                <input type="text" id="searchInput3" placeholder="Поиск">
-                                <span id="clearIcon3" onclick="clearSearch(3)">&#10006;</span>
+                                <button class="button add-button" onclick="showAddPopup()">ADD A NEW ONE</button>
                             </td>
                             <td>
-                                <input type="text" id="searchInput4" placeholder="Поиск">
-                                <span id="clearIcon4" onclick="clearSearch(4)">&#10006;</span>
+                                <button class="button add-new-button" onclick="clearFields()">DESELECT</button>
                             </td>
-                            <td>
-                                <input type="text" id="searchInput5" placeholder="Поиск">
-                                <span id="clearIcon5" onclick="clearSearch(5)">&#10006;</span>
-                            </td>
-                            <td>
-                                <input type="text" id="searchInput6" placeholder="Поиск">
-                                <span id="clearIcon6" onclick="clearSearch(6)">&#10006;</span>
-                            </td>
-                            <td>
-                                <input type="text" id="searchInput7" placeholder="Поиск">
-                                <span id="clearIcon7" onclick="clearSearch(7)">&#10006;</span>
-                            </td>
+                            <td><div class="header__table__content">In Total</div></td>
+                            <td><button class="button export-button" onclick="showExportPopup()">EXPORT</button></td>
+                            <td><button class="button import-button" onclick="showImportPopup()">IMPORT</button></td>
                         </tr>
-                        </thead>
-
-                        <tbody>
-
-                        </tbody>
-                    </table>
-                </div>
+                    </tbody>
+                </table>
             </div>
         </div>
-        <div class="navigation">
+    </header>
+
+    <!--Table-->
+
+    <div class="slider-wrapper">
+        <div class="slider-inner">
+          <div class="navigation">
             <button onclick="prevSlide()">Prev</button>
             <button onclick="goToSlide(0)">1</button>
             <button onclick="goToSlide(1)">2</button>
             <button onclick="goToSlide(2)">3</button>
             <button onclick="nextSlide()">Next</button>
+          </div>
+          <div class="slider">
+            <div class="carousel">
+              <table id="data-table">
+                <thead>
+                  <tr>
+                    <th><a href="#" onclick="handleSort(0)">НОМЕР И ДАТА СЧЕТА</a></th>
+                    <th><a href="#" onclick="handleSort(1)">INNKOMPAN</a></th>
+                    <th><a href="#" onclick="handleSort(2)">NAZVKOMPAN</a></th>
+                    <th><a href="#" onclick="handleSort(3)">TELEF</a></th>
+                    <th><a href="#" onclick="handleSort(4)">ELPOCHTA</a></th>
+                    <th><a href="#" onclick="handleSort(5)">АКТИВНЫЕ ВАКАНСИИ</a></th>
+                    <th><a href="#" onclick="handleSort(6)">ИСТОЧНИК ОБЪЯВЛЕНИЯ</a></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <input type="text" id="searchInput1" placeholder="Поиск">
+                      <span id="clearIcon1" onclick="clearSearch(1)">&#10006;</span>
+                    </td>
+                    <td>
+                      <input type="text" id="searchInput2" placeholder="Поиск">
+                      <span id="clearIcon2" onclick="clearSearch(2)">&#10006;</span>
+                    </td>
+                    <td>
+                      <input type="text" id="searchInput3" placeholder="Поиск">
+                      <span id="clearIcon3" onclick="clearSearch(3)">&#10006;</span>
+                    </td>
+                    <td>
+                      <input type="text" id="searchInput4" placeholder="Поиск">
+                      <span id="clearIcon4" onclick="clearSearch(4)">&#10006;</span>
+                    </td>
+                    <td>
+                      <input type="text" id="searchInput5" placeholder="Поиск">
+                      <span id="clearIcon5" onclick="clearSearch(5)">&#10006;</span>
+                    </td>
+                    <td>
+                      <input type="text" id="searchInput6" placeholder="Поиск">
+                      <span id="clearIcon6" onclick="clearSearch(6)">&#10006;</span>
+                    </td>
+                    <td>
+                      <input type="text" id="searchInput7" placeholder="Поиск">
+                      <span id="clearIcon7" onclick="clearSearch(7)">&#10006;</span>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
         </div>
-    </div>  
+        <div class="navigation">
+          <button onclick="prevSlide()">Prev</button>
+          <button onclick="goToSlide(0)">1</button>
+          <button onclick="goToSlide(1)">2</button>
+          <button onclick="goToSlide(2)">3</button>
+          <button onclick="nextSlide()">Next</button>
+        </div>
+      </div>
     
+    <!--Popup's-->
+
     <div id="importPopup" class="popup">
         <button class="close-button" onclick="hidePopup('importPopup')">x</button>
         <h2>Import Popup</h2>
@@ -105,14 +124,12 @@
       <div id="exportPopup" class="popup">
         <button class="close-button" onclick="hidePopup('exportPopup')">x</button>
         <h2>Export Popup</h2>
-        <!-- Дополнительное содержимое попапа для экспорта -->
       </div>
       
       <div id="addPopup" class="popup">
         <button class="close-button" onclick="hidePopup('addPopup')">x</button>
         <h2>Add Popup</h2>
-        <!-- Дополнительное содержимое попапа для добавления -->
-      </div>
+          </div>
 
     <script src = "script.js"></script>
     </body>

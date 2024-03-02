@@ -1,179 +1,73 @@
-html, body, div, span, h1, p, a, img, ol, ul, li,
-table, tbody, tfoot, thead, tr, th, td {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  outline: 0;
-  font-weight: inherit;
-  font-style: inherit;
-  font-size: 100%;
-  font-family: inherit;
-  vertical-align: baseline;
-}
-
-body {
-  font-family: Arial, sans-serif;
-  font-size: 14px;
-  line-height: 1.5;
-}
-
-input, select, textarea {
-  font-family: inherit;
-  font-size: inherit;
-}
-
-table {
-  width: 100%;
-  border-collapse: collapse;
-}
-
-th, td {
-  padding: 8px;
-  border-bottom: 1px solid #ccc;
-}
-
-th {
-  background-color: #f2f2f2;
-  font-weight: bold;
-  text-align: left;
-}
-
-button, .button {
-  display: inline-block;
-  padding: 8px 12px;
-  text-align: center;
-  font-size: 14px;
-  font-weight: bold;
-  text-decoration: none;
-  color: #fff;
-  background-color: #007bff;
-  border-radius: 4px;
-  border: none;
-  cursor: pointer;
-}
-
-button:hover, .button:hover {
-  background-color: #0056b3;
-}
-
-a {
-  color: #007bff;
-  text-decoration: none;
-}
-
-a:hover {
-  text-decoration: underline;
-}
-
-/*Крестик*/
-[id^='clearIcon'] {
-    cursor: pointer;
-    display: none;
-}
-
-[id^='clearIcon']:hover {
-    opacity: 0.5;
-}
-
-/*Popup's*/
-/* Обновленные стили для попапов */
-.popup {
-
-  display: none;
-  position: fixed;
-
-  max-width: 90%;
-  max-height: 90%;
-  width: 600px; /* При желании вы можете настроить ширину попапа */
-  background-color: rgba(0, 0, 0, 0.5);
-  z-index: 9999;
-  overflow: auto;
+/*Шапка*/
+* {
   box-sizing: border-box;
 }
-
-.popup h2 {
-  color: #ffffff;
-  margin-top: 0; /* Добавлено для отступа сверху */
-  padding: 16px; /* Добавлено для отступа по краям */
+html {
+  scroll-behavior: smooth;
 }
-
-.close-button {
-  position: absolute;
-  top: 5px;
-  right: 5px;
-  width: 20px;
-  height: 20px;
-  background-color: transparent;
-  color: #ffffff;
-  border: none;
-  font-size: 20px;
-  font-weight: bold;
-  cursor: pointer;
+hr {
+  margin: 0;
 }
-
-/* Опциональные стили для кнопки закрытия */
-.close-button:hover {
-  color: #ff0000;
+ul,
+li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
-ч 
-.popup-container {
-  text-align: center;
-  margin-top: 50px;
-  height: 100vh;
-  position: relative;
+h1,h2,h3,h4,h5,h6 {
+  margin: 0;
+  padding: 0;
 }
-
-.button {
-  padding: 12px 24px;
-  font-size: 18px;
-  background-color: #007bff;
-  color: #ffffff;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
+p {
+  margin: 0;
 }
-
-.popup {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
+body {
+  padding: 0;
+  margin: 0;
+}
+.container {
+  max-width: 1920px;
+  margin: 0 auto;
+}
+.header {
   width: 100%;
-  height: 100vh;
-  background-color: rgba(0, 0, 0, 0.5);
-  z-index: 9999;
+  display: flex;
+  justify-content: center;
 }
-
-.popup h2 {
-  color: #ffffff;
+.header__inner {
+  width: 1700px;
+  height: 54px;
 }
-
-/* Дополнительные стили попапов (вы можете настроить их по своему усмотрению) */
-#importPopup {
-  background-color: #f44336;
-}
-
-#exportPopup {
-  background-color: #4caf50;
-}
-
-#addPopup {
-  background-color: #ff9800;
-}
-
-
-.header__table{
+.header__table {
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: collapse;
   color: #9c9c9c;
   text-transform: uppercase;
+}
+.header__table td {
+  border: 1px solid #000;
+  padding: 0;
   height: 54px;
-  margin: 0 110px;  
 }
-
-.earliestDate,
-.latestDate{
-  color: #4fa95d;
+.header__table__content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  border: none;
+  box-sizing: border-box;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+/*Popup's*/
 .popup {
   display: none;
   position: fixed;
@@ -187,3 +81,37 @@ a:hover {
   z-index: 9999;
   overflow: auto;
 }
+.popup h2 {
+  color: #ffffff;
+}
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 24px;
+  color: #fff;
+  cursor: pointer;
+}
+.close-button:hover {
+  color: #ff0000;
+}
+.popup-container {
+  text-align: center;
+  margin-top: 50px;
+  height: 100vh;
+  position: relative;
+}
+/*Тело*/
+
+
+
+/*Крестик*/
+[id^='clearIcon'] {
+    cursor: pointer;
+    display: none;
+}
+
+[id^='clearIcon']:hover {
+    opacity: 0.5;
+}
+

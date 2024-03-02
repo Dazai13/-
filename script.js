@@ -1,5 +1,5 @@
+// Не требует изменений
 //Popup's
-
 function showImportPopup() {
   var importPopup = document.getElementById("importPopup");
   importPopup.style.display = "block";
@@ -25,18 +25,13 @@ function hidePopup(popupId) {
   popup.style.display = "none";
 }
 
-
-// Не требует изменений
-
 /*Курсор на месте при перезагрузкке (Пункт 3)*/
-
 window.addEventListener('beforeunload', function(event) {
     localStorage.setItem('cursorX', event.clientX);
     localStorage.setItem('cursorY', event.clientY);
   });
 
 /*Кнопка DESELECT (Пункт 6)*/
-
 function clearFields() {
   var inputs = document.getElementsByTagName("input");
   for (var i = 0; i < inputs.length; i++) {
@@ -88,7 +83,6 @@ function manageClearIcon(input) {
 }
 
 /*Крестик на поиске(Пункт 2) */
-
 var input1 = document.getElementById("searchInput1");
 var input2 = document.getElementById("searchInput2");
 var input3 = document.getElementById("searchInput3");
