@@ -4,33 +4,27 @@ function showImportPopup() {
   var importPopup = document.getElementById("importPopup");
   importPopup.style.display = "block";
 }
-
 function showExportPopup() {
   var exportPopup = document.getElementById("exportPopup");
   exportPopup.style.display = "block";
 }
-
 function showAddPopup() {
   var addPopup = document.getElementById("addPopup");
   addPopup.style.display = "block";
 }
-
 function showPopup(popupId) {
   var popup = document.getElementById(popupId);
   popup.style.display = "block";
 }
-
 function hidePopup(popupId) {
   var popup = document.getElementById(popupId);
   popup.style.display = "none";
 }
-
 /*Курсор на месте при перезагрузкке (Пункт 3)*/
 window.addEventListener('beforeunload', function(event) {
     localStorage.setItem('cursorX', event.clientX);
     localStorage.setItem('cursorY', event.clientY);
   });
-
 /*Кнопка DESELECT (Пункт 6)*/
 function clearFields() {
   var inputs = document.getElementsByTagName("input");
@@ -42,7 +36,6 @@ function clearFields() {
       }
   }
 }
-
 var deselectButton = document.querySelector("[onclick='clearFields()']");
 deselectButton.addEventListener("click", function () {
   clearFields();
@@ -51,7 +44,6 @@ deselectButton.addEventListener("click", function () {
       clearIcon.style.display = "none";
   });
 });
-
 var searchInputs = document.querySelectorAll("input[id^='searchInput']");
 searchInputs.forEach(function (input) {
   input.addEventListener("input", function () {
@@ -72,7 +64,6 @@ searchInputs.forEach(function (input) {
       this.style.opacity = "1";
   });
 });
-
 function manageClearIcon(input) {
   var clearIcon = input.nextElementSibling;
   if (input.value.length > 0) {
@@ -81,7 +72,6 @@ function manageClearIcon(input) {
       clearIcon.style.display = "none";
   }
 }
-
 /*Крестик на поиске(Пункт 2) */
 var input1 = document.getElementById("searchInput1");
 var input2 = document.getElementById("searchInput2");
@@ -90,7 +80,6 @@ var input4 = document.getElementById("searchInput4");
 var input5 = document.getElementById("searchInput5");
 var input6 = document.getElementById("searchInput6");
 var input7 = document.getElementById("searchInput7");
-
 var clearIcon1 = document.getElementById("clearIcon1");
 var clearIcon2 = document.getElementById("clearIcon2");
 var clearIcon3 = document.getElementById("clearIcon3");
@@ -98,7 +87,6 @@ var clearIcon4 = document.getElementById("clearIcon4");
 var clearIcon5 = document.getElementById("clearIcon5");
 var clearIcon6 = document.getElementById("clearIcon6");
 var clearIcon7 = document.getElementById("clearIcon7");
-
 input1.addEventListener("input", function() {
     manageClearIcon(input1, clearIcon1);
 });
@@ -120,7 +108,6 @@ input6.addEventListener("input", function() {
 input7.addEventListener("input", function() {
     manageClearIcon(input7, clearIcon7);
 });
-
 function manageClearIcon(input, clearIcon) {
     if (input.value.length > 0) {
         clearIcon.style.display = "inline-block";
@@ -128,7 +115,6 @@ function manageClearIcon(input, clearIcon) {
         clearIcon.style.display = "none";
     }
 }
-
 var clearIcons = document.querySelectorAll("[id^='clearIcon']");
 for (var i = 0; i < clearIcons.length; i++) {
     clearIcons[i].addEventListener("mouseover", function() {
@@ -138,18 +124,14 @@ for (var i = 0; i < clearIcons.length; i++) {
         this.style.opacity = "1";
     });
 }
-
 function clearSearch(index) {
     var input = document.getElementById("searchInput" + index);
     var clearIcon = document.getElementById("clearIcon" + index);
     input.value = "";
     clearIcon.style.display = "none";
 }
-
 // При нажатии на название на колонку необходимо производить сортировку в колонке по А-Я, если повторно нажать, то сортировка должна происходить уже в обратном направлении Я-А
-
 var columnSorting = {};
-
 function createLinkCell(text, link, columnIndex) {
   var cell = document.createElement("td");
   var linkElement = document.createElement("a");
@@ -172,7 +154,6 @@ function createLinkCell(text, link, columnIndex) {
 
   return cell;
 }
-
 function handleSort(columnIndex) {
   var tableBody = document.querySelector("#data-table tbody");
   var rows = tableBody.querySelectorAll("tr");
@@ -209,7 +190,6 @@ function handleSort(columnIndex) {
     tableBody.appendChild(row);
   });
 }
-
 function addColumnSortListeners() {
   var tableHead = document.getElementById("data-table").getElementsByTagName("thead")[0];
   var headerCells = tableHead.getElementsByTagName("th");
@@ -226,20 +206,8 @@ function addColumnSortListeners() {
     }
   }
 }
-
 addColumnSortListeners();
-
-
-
-
-
-
-
-
- 
-  
 /*Распаковка XML файла*/
-
 function importXml() {
   var xmlFileInput = document.getElementById("xmlFileInput");
   var files = xmlFileInput.files;
@@ -360,73 +328,15 @@ function importXml() {
       reader.readAsArrayBuffer(file);
   }
 }
-
-// Функция для создания ячейки с гиперссылкой
-function createLinkCell(text, link) {
-  var cell = document.createElement("td");
-  var linkElement = document.createElement("a");
-  linkElement.href = link;
-  linkElement.textContent = text;
-  linkElement.setAttribute("data-content", text); // Добавить атрибут data-content
-  cell.appendChild(linkElement);
-  return cell;
-}
-
-// Обработчик клика по гиперссылке
-function handleLinkClick(event) {
-  event.preventDefault();
-
-  var content = this.getAttribute("data-content");
-  var searchInput = document.getElementById("searchInput");
-  var searchValues = searchInput.value.split(",");
-
-  var newSearchValues = searchValues.filter(function(value) {
-
-    return value.trim() !== content;
-  });
-
-  searchInput.value = newSearchValues.join(",");
-  handleSearch();
-}
-
-// Обработчик поиска и фильтрации таблицы
-function handleSearch() {
-  var searchInput = document.getElementById("searchInput");
-  var searchText = searchInput.value.toLowerCase();
-
-  var tableRows = document.querySelectorAll("#data-table tbody tr");
-
-  tableRows.forEach(function(row) {
-    var rowVisible = false;
-    var cells = row.getElementsByTagName("td");
-
-    for (var i = 0; i < cells.length; i++) {
-      var cell = cells[i];
-      var cellText = cell.textContent.toLowerCase();
-
-      if (cellText.includes(searchText)) {
-        rowVisible = true;
-        break;
-      }
-    }
-
-    row.style.display = rowVisible ? "" : "none";
-  });
-}
-
 // Основной код
 document.getElementById("importXmlButton").addEventListener("click", importXml);
-
-var searchInput = document.getElementById("searchInput1");
+var searchInput = document.getElementById("searchInput");
 searchInput.addEventListener("input", handleSearch);
-
 // Присвойте обработчики клика по гиперссылкам после импорта
 var links = document.querySelectorAll("#data-table tbody a");
 links.forEach(function(link) {
   link.addEventListener("click", handleLinkClick);
-});
-
-  
+});  
   // Функция для получения значения из xml тега
 function getXmlValue(element, tagName) {
     var elements = element.getElementsByTagName(tagName);
@@ -435,7 +345,6 @@ function getXmlValue(element, tagName) {
     }
     return "";
   }
-  
   // Функция для проверки наличия дубликата в таблице
 function checkDuplicateEntry(schetnomer, vaknazv, zarpl) {
     var rows = document.getElementById("data-table").getElementsByTagName("tbody")[0].getElementsByTagName("tr");
@@ -455,8 +364,4 @@ function checkDuplicateEntry(schetnomer, vaknazv, zarpl) {
     return false;
 
 }
-
 document.getElementById("importXmlButton").addEventListener("click", importXml);
-
-
-
