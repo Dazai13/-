@@ -411,11 +411,6 @@ function importXml() {
   }
 }
 
-
-
-
-
-
 // Функция для создания ячейки с гиперссылкой
 function createLinkCell(text, link) {
   var cell = document.createElement("td");
