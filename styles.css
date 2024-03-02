@@ -24,6 +24,16 @@ p {
 body {
   padding: 0;
   margin: 0;
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  color: #9c9c9c;
+  font-size: 18px;
+}
+.header__table__content span {
+  margin-right: 0.5em; 
+}
+.latestDate, .earliestDate{
+  color: #4FA95D;
 }
 .container {
   max-width: 1920px;
@@ -46,7 +56,7 @@ body {
   text-transform: uppercase;
 }
 .header__table td {
-  border: 1px solid #000;
+  border: 1px solid #CBCBCB;
   padding: 0;
   height: 54px;
 }
@@ -65,11 +75,14 @@ body {
   border: none;
   box-sizing: border-box;
   text-transform: uppercase;
-  font-weight: bold;
+  background-color: #fff;
+  color: #9c9c9c;
+  font-size: 18px;
 }
 #rowCountValue {
   margin-left: 5px;
   margin-right: 5px;
+  color:#4FA95D;
 }
 /*Popup's*/
 .popup {
@@ -105,17 +118,29 @@ body {
   height: 100vh;
   position: relative;
 }
-/*Тело*/
-
-
-
-/*Крестик*/
-[id^='clearIcon'] {
-    cursor: pointer;
-    display: none;
+/*Clear table*/
+.clear__table{
+  width: 100%;
+  margin-top: 18px;
+  display: flex;
+  justify-content: center;
+}
+.button__clear{
+  width: 1700px;
+  height: 54px;
+  text-transform: uppercase;
+  background-color: #fff;
+  color: #9c9c9c;
+  font-size: 18px;
+  border: 1px solid #CBCBCB;
 }
 
-[id^='clearIcon']:hover {
-    opacity: 0.5;
+
+[id^="clearIcon"] {
+  display: none;
+}
+
+[id^="clearIcon"]:hover {
+  opacity: 0.5;
 }
 

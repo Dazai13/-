@@ -2,6 +2,7 @@
 <html>
 <head>
     <title>Моя HTML страница</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -16,35 +17,36 @@
                         <tr>
                             <td>
                                 <div class="header__table__content">
-                                    <span>Дата от:</span>
+                                    <span>Дата от </span>
                                     <span class="earliestDate" id="earliestDate"></span>
                                 </div>
                             </td>
                             <td>
                                 <div class="header__table__content">
-                                    <span>Дата до:</span>
+                                    <span>Дата до</span>
                                     <span class="latestDate" id="latestDate"></span>
                                 </div>
                             </td>
                             <td>
-                                <button class="button add-button" onclick="showAddPopup()">ADD A NEW ONE</button>
+                                <button class="button add-button" onclick="showAddPopup()">+ ADD A NEW ONE</button>
                             </td>
                             <td>
-                                <button class="button add-new-button" onclick="clearFields()">DESELECT</button>
+                                <button class="button add-new-button" onclick="clearFields()"><img src = "assets/img/Deselect.png"> DESELECT</button>
                             </td>
                             <td>
                                 <div class="header__table__content">
-                                  In Total
-                                  <p id="rowCount">
+                                    <img src = "assets/img/InTotal.png">
+                                    In Total:
+                                    <p id="rowCount">
                                     <span id="rowCountValue">0</span>
                                   </p>
                                 </div>
                               </td>
                             <td>
-                                <button class="button export-button" onclick="showExportPopup()">EXPORT</button>
+                                <button class="button export-button" onclick="showExportPopup()"><img src = "assets/img/Export.png">EXPORT</button>
                             </td>
                             <td>
-                                <button class="button import-button" onclick="showImportPopup()">IMPORT</button>
+                                <button class="button import-button" onclick="showImportPopup()"><img src = "assets/img/Import.png">IMPORT</button>
                             </td>
                         </tr>
                     </tbody>
@@ -52,6 +54,15 @@
             </div>
         </div>
     </header>
+
+    <!--Clear Table-->
+
+    <div class = "clear__table">
+        <button class = "button__clear" onclick="">CLEAR THE TABLE</button>
+    </div>
+
+    <!--Filter Table-->
+
 
     <!--Table-->
 
@@ -141,8 +152,18 @@
       <div id="addPopup" class="popup">
         <button class="close-button" onclick="hidePopup('addPopup')">x</button>
         <h2>Add Popup</h2>
+        <input type="text" id="newSchetnomer" placeholder="SCHETNOMER">
+        <input type="text" id="newSchetdata" placeholder="SCHETDATA">
+        <input type="text" id="newInnkomban" placeholder="INNKOMPAN">
+        <input type="text" id="newNazvkomban" placeholder="NAZVKOMPAN">
+        <input type="text" id="newTelef" placeholder="TELEF">
+        <input type="text" id="newElpocht" placeholder="ELPOCHTA">
+        <input type="text" id="newElpochtakadrovik" placeholder="ELPOCHTAKADROVIK">
+        <input type="text" id="newVaknazv" placeholder="VAKNAZV">
+        <button onclick="addNewRow()">ADD A NEW ONE</button>
       </div>
 
     <script src = "script.js"></script>
+    <script src = "app.js"></script>
     </body>
 </html>
