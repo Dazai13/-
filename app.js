@@ -47,11 +47,7 @@ function showImportPopup() {
     }
     updateRowCount();
   }
-  /*Курсор на месте при перезагрузкке (Пункт 3)*/
-  window.addEventListener('beforeunload', function(event) {
-      localStorage.setItem('cursorX', event.clientX);
-      localStorage.setItem('cursorY', event.clientY);
-    });
+
   /*Кнопка DESELECT (Пункт 6)*/
   function clearFields() {
   var inputs = document.getElementsByTagName("input");
@@ -244,20 +240,6 @@ function updateRowCount() {
     var rowCount = document.getElementById("data-table").getElementsByTagName("tbody")[0].getElementsByTagName("tr").length;
     rowCountElement.textContent = rowCount;
   }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   const menu = document.querySelector('select');
 
   menu.addEventListener('change', (event) => {

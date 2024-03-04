@@ -265,13 +265,27 @@ select {
   width: 1700px;
   height: 690px;
 }
-#data-table, tr, td, th{
+#data-table,
+tr,
+td,
+th {
   border: 2px solid #CBCBCB;
   border-collapse: collapse;
   font-size: 20px;
   font-weight: 400;
   color: #1E1E1E;
+  word-wrap: break-word;
 }
+#data-table {
+  table-layout: fixed;
+}
+
+#data-table td, #data-table th {
+  overflow: hidden;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
 
 
 
