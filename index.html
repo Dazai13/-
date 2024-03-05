@@ -266,62 +266,66 @@
     
     <!--Popup's-->
     <!--Import-->
-    <span class="close-icon"><img src="assets/img/Component 4.png" alt=""></span>
-    <div id="importPopup" class="popup">
+
+    <div id="importPopup" class="importPopup">
         <div class="import__header">
-            <div class = "import__title">
-                <p class = "import__title__text">Импорт компании</p>
-            </div>
-            <div class = "import__heaeder__content">
-                <p class = "import__data">Дата <strong>12.11.2023</strong></p>
-                <p>ФИО оператора: <a class = "import__link" href = "#">Александра Герасимчук</a></p>
-            </div>
+          <div class="import__title">
+            <p class="import__title__text">Импорт компании</p>
+          </div>
+          <div class="import__header__content">
+            <p class="import__data">Дата <strong>12.11.2023</strong></p>
+            <p>ФИО оператора: <a class="import__link" href="#">Александра Герасимчук</a></p>
+          </div>
         </div>
-        <div class = "import__body">
-            <div class="import__content">
-                <div class = "content__title">
-                    Выберите путь к файлу
-                </div>
-                <div class = "import__label">
-                    <input type="file" id="xmlFileInput" class="file-input" multiple>
-                    <label for="xmlFileInput" class="file-input-label"><img class = "folder" width = "24px" height = "24px" src = "assets/img/folder.png">Выбрать файлы</label>
-                </div>
+        <div class="import__body">
+          <div class="import__content">
+            <div class="content__title">
+              Выберите путь к файлу
             </div>
+            <div class="import__label">
+              <input type="file" id="xmlFileInput" class="file-input" multiple>
+              <label for="xmlFileInput" class="file-input-label"><img class="folder" width="24px" height="24px" src="assets/img/folder.png">Выбрать файлы</label>
+            </div>
+          </div>
         </div>
-        <div class = "import__footer">
-            <button class = "import__button" id="importXmlButton" onclick="importXml()">Загрузить</button>
-            <button class = "cancle__button" id="importXmlButton" onclick="importXml()">ОТМЕНИТЬ</button>
+        <div class="import__footer">
+          <button class="import__button" onclick="importXml()">Загрузить</button>
+          <button class="cancel__button" onclick="cancelImport()">ОТМЕНИТЬ</button>
         </div>
-    </div>
+        <span class="close-icon" onclick="cancelImport()"><img src="assets/img/Component 4.png" alt=""></span>
+      </div>
+      
     <!--Export-->
-    <span class="close-icon"><img src="assets/img/Component 4.png" alt=""></span>
-    <div id="exportPopup" class="popup">
+
+    <div id="exportPopup" class="exportPopup">
         <div class="export__header">
-            <div class="export__title">
-                <p class="export__title__text">Экспорт компании</p>
-            </div>
-            <div class="export__header__content">
-                <p class="export__data">Дата <strong>12.11.2023</strong></p>
-                <p>ФИО оператора: <a class="export__link" href="#">Александра Герасимчук</a></p>
-            </div>
+          <div class="export__title">
+            <p class="export__title__text">Экспорт компании</p>
+          </div>
+          <div class="export__header__content">
+            <p class="export__data">Дата <strong>12.11.2023</strong></p>
+            <p>ФИО оператора: <a class="export__link" href="#">Александра Герасимчук</a></p>
+          </div>
         </div>
         <div class="export__body">
-            <div class="export__content">
-                <div class="content__title">
-                    Выберите путь для экспорта
-                </div>
-                <div class="export__label">
-                    <input type="file" id="xmlFileInput" class="file-input" multiple>
-                    <label for="xmlFileInput" class="file-input-label"><img class="folder" width="24px" height="24px" src="assets/img/folder.png">Выбрать файлы</label>
-                </div>
+          <div class="export__content">
+            <div class="content__title">
+              Выберите путь для экспорта
             </div>
+            <div class="export__label">
+              <input type="file" id="xmlFileOutput" class="file-output" multiple>
+              <label for="xmlFileOutput" class="file-output-label"><img class="folder" width="24px" height="24px" src="assets/img/folder.png">Выбрать папку</label>
+            </div>
+          </div>
         </div>
         <div class="export__footer">
-            <button class="export__button" id="exportXmlButton" onclick="exportXml()">Экспортировать</button>
-            <button class="cancel__button" id="cancelExportButton" onclick="cancelExport()">ОТМЕНИТЬ</button>
+          <button class="export__button" onclick="exportXml()">Экспортировать</button>
+          <button class="cancel__button" onclick="cancelExport()">ОТМЕНИТЬ</button>
         </div>
-    </div>
-
+        <span class="close-icon" onclick="cancelExport()"><img src="assets/img/Component 4.png" alt=""></span>
+      </div>
+    
+    <script src = "close.js"></script>
     <script src = "script.js"></script>
     <script src = "app.js"></script>
     </body>
