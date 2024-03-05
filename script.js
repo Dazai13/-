@@ -14,7 +14,7 @@ function importXml() {
   var files = xmlFileInput.files;
   var tableBody = document.getElementById("data-table").getElementsByTagName("tbody")[0];
   var rowCount = tableBody.getElementsByTagName("tr").length;
-
+  var selectElement = document.getElementById("selectOutput");
   for (var i = 0; i < files.length; i++) {
     var file = files[i];
     var reader = new FileReader();
@@ -25,7 +25,7 @@ function importXml() {
       var parser = new DOMParser();
       var xmlDoc = parser.parseFromString(xmlDecoded, "text/xml");
       var rows = xmlDoc.getElementsByTagName("ROW");
-
+      var uniqueValues = new Set();
       for (var j = 0; j < rows.length; j++) {
         var row = rows[j];
         var schetnomer = getXmlValue(row, "SCHETNOMER") || "Unknown";
@@ -33,41 +33,62 @@ function importXml() {
         var innkomban = getXmlValue(row, "INNKOMPAN");
         var nazvkomban = getXmlValue(row, "NAZVKOMPAN");
         var telef = getXmlValue(row, "TELEF");
-        var elpocht = getXmlValue(row, "ELPOCHTA") || getXmlValue(row, "ELPOCHTAKADROVIK");
+        var elpocht = getXmlValue(row, "ELPOCHTA") + getXmlValue(row, "ELPOCHTAKADROVIK") || "";
         var vaknazv = getXmlValue(row, "VAKNAZV");
+        var oblast = getXmlValue(row, "ADRESSORABOTI-OBLAST");
         var sourceFile = file.name;
         var duplicateEntry = checkDuplicateEntry(schetnomer, vaknazv, elpocht);
-        
-        if (!duplicateEntry && schetnomer && schetdata) {
-          if (rowCount === 0) {
+        var isDuplicateRow = false;
+
+        // Поиск совпадающей строки по `innkomban` и `nazvkomban`
+        var existingRow;
+        for (var k = 0; k < rowCount; k++) {
+          existingRow = tableBody.getElementsByTagName("tr")[k];
+          var infoCell = existingRow.cells[1];
+          var existingInnkomban = existingRow.cells[1].textContent.split("\n")[0].trim();
+          var existingNazvkomban = existingRow.cells[1].textContent.split("\n")[1].trim();
+          if (existingInnkomban === innkomban && existingNazvkomban === nazvkomban) {
+            isDuplicateRow = true;
+            break;
+          }
+        }
+
+        if (!duplicateEntry && !isDuplicateRow && schetnomer && schetdata && elpocht) {
+          // Создание новой строки, если не найдена совпадающая строка
+          if (!isDuplicateRow) {
             var newRow = createTableRow(rowCount + 1, innkomban, nazvkomban, telef, elpocht, schetnomer, schetdata, vaknazv, sourceFile);
             tableBody.appendChild(newRow);
             importedEntries.push({ schetnomer: schetnomer, vaknazv: vaknazv, elpocht: elpocht });
             rowCount++;
-          } else {
-            var prevRow = tableBody.getElementsByTagName("tr")[rowCount - 1];
-            var prevInfoCell = prevRow.cells[1];
-            var prevCalculationCell = prevRow.cells[3];
-            var prevActiveVacanciesCell = prevRow.cells[4];
-            var prevSourceCell = prevRow.cells[6];
-            
-            if (prevInfoCell.textContent === innkomban + "\n" + nazvkomban + "\n" + telef + "\n" + elpocht) {
-              prevCalculationCell.textContent += "\n" + schetnomer + " / " + schetdata;
-              prevActiveVacanciesCell.textContent += "\n" + vaknazv;
-              prevSourceCell.textContent += "\n" + sourceFile;
-            } else {
-              var newRow = createTableRow(rowCount + 1, innkomban, nazvkomban, telef, elpocht, schetnomer, schetdata, vaknazv, sourceFile);
-              tableBody.appendChild(newRow);
-              importedEntries.push({ schetnomer: schetnomer, vaknazv: vaknazv, elpocht: elpocht });
-              rowCount++;
-            }
           }
+          
+          // Обновление значений предыдущей строки в случае совпадения `innkomban` и `nazvkomban`
+          else {
+            var prevCalculationCell = existingRow.cells[3];
+            var prevActiveVacanciesCell = existingRow.cells[4];
+            var prevSourceCell = existingRow.cells[6];
+            prevCalculationCell.textContent += "\n" + schetnomer + " / " + schetdata;
+            prevActiveVacanciesCell.textContent += "\n" + vaknazv;
+            prevSourceCell.textContent += "\n" + sourceFile;
+          }
+          uniqueValues.add(oblast);
         }
       }
+      selectElement.innerHTML = "";
+      uniqueValues.forEach(function (value) {
+        var option = document.createElement("option");
+        option.value = value;
+        option.textContent = value;
+        selectElement.appendChild(option);
+
+      });
     };
     reader.readAsArrayBuffer(file);
   }
 }
+
+
+
 function createTableRow(index, innkomban, nazvkomban, telef, elpocht, schetnomer, schetdata, vaknazv, sourceFile) {
   var newRow = document.createElement("tr");
   var listNumberCell = document.createElement("td");
@@ -118,4 +139,3 @@ window.addEventListener('beforeunload', function(event) {
   localStorage.setItem('cursorX', event.clientX);
   localStorage.setItem('cursorY', event.clientY);
 });
-/*------------------------------------------------------------*/

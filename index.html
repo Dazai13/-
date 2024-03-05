@@ -6,7 +6,57 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <!--Line upper-->
+    <div class="line__header">
+        <img src="assets/img/enter.png" width = "32px" height = "32px" alt="" class="enter__logo">Войти
+    </div>
 
+    <div class="main__header">
+        <div class="container">
+            <div class="main__header__inner">
+                <div class="main__header__link">Интерфейс</div>
+                <div class="main__header__link">Соц.сети</div>
+                <div class="main__header__link active">Журналы</div>
+                <div class="main__header__link">Импорт</div>
+                <div class="main__header__link">Экспорт</div>
+                <div class="main__header__link">Пользователи</div>
+                <div class="main__header__link">Email ящики</div>
+                <div class="main__header__link">Ключи.Пароли</div>
+                <div class="main__header__link">Разное</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="grid__header">
+        <div class="grid-row">
+          <div class="grid-block"><img class = "grid__img" width ="60px" height = "60px" src="assets/img/Obiavlenie.png" alt="">Обьявления</div>
+          <div class="grid-block"><img class = "grid__img" width ="60px" height = "60px" src="assets/img/Vakanz.png" alt="">Вакансии</div>
+          <div class="grid-block"><img class = "grid__img" width ="60px" height = "60px" src="assets/img/vakanz_obed.png" alt="">Вакансии ОБЪЕД</div>
+          <div class="grid-block"><img class = "grid__img" width ="60px" height = "60px" src="assets/img/soiskateli.png" alt="">Соискатели</div>
+          <div class="grid-block"><img class = "grid__img" width ="60px" height = "60px" src="assets/img/clarity_talk-bubbles-solid.png" alt="">отклики</div>
+          <div class="grid-block"><img class = "grid__img" width ="60px" height = "60px" src="assets/img/icon-park-solid_edit-name.png" alt="">ФИО</div>
+          <div class="grid-block"><img class = "grid__img" width ="60px" height = "60px" src="assets/img/foundation_address-book.png" alt="">аДРЕСА</div>
+          <div class="grid-block active"><img class = "grid__img" width ="60px" height = "60px" src="assets/img/Group 45.png" alt="">КОМПАНИИ</div>
+        </div>
+        <div class="grid-row">
+          <div class="grid-block"><img class = "grid__img" width ="60px" height = "60px" src="assets/img/Group 15.png" alt="">Учебные заведения</div>
+          <div class="grid-block"><img class = "grid__img" width ="60px" height = "60px" src="assets/img/Group 13.png" alt="">Сокр.Ю.Ф.</div>
+          <div class="grid-block"><img class = "grid__img" width ="60px" height = "60px" src="assets/img/ic_baseline-people.png" alt="">Альтернативные</div>
+          <div class="grid-block"><img class = "grid__img" width ="60px" height = "60px" src="assets/img/ic_baseline-email.png" alt="">Филиалы</div>
+          <div class="grid-block"><img class = "grid__img" width ="60px" height = "60px" src="assets/img/kvalification.png" alt="">Квалификации</div>
+          <div class="grid-block"><img class = "grid__img" width ="60px" height = "60px" src="assets/img/spec.png" alt="">Специальности</div>
+          <div class="grid-block"><img class = "grid__img" width ="60px" height = "60px" src="assets/img/telefon.png" alt="">Телефонные<br> коды</div>
+          <div class="grid-block"><img class = "grid__img" width ="60px" height = "60px" src="assets/img/admin.png" alt="">Администраторы</div>
+        </div>
+        <div class="grid-row">
+          <div class="grid-block"><img class = "grid__img" width ="60px" height = "60px" src="assets/img/Email.png" alt="">email рассылка</div>
+          <div class="grid-block"><img class = "grid__img" width ="60px" height = "60px" src="assets/img/kak__nado.png" alt="">КАК БЫЛО КАК НАДО</div>
+          <div class="grid-block"><img class = "grid__img" width ="60px" height = "60px" src="assets/img/prefix.png" alt="">ПРЕФИКСЫ<br> СЧЕТОВ</div>
+          <div class="grid-block"><img class = "grid__img" width ="60px" height = "60px" src="assets/img/search.png" alt="">ПОИСК</div>
+          <div class="grid-block"><img class = "grid__img" width ="60px" height = "60px" src="assets/img/Bank.png" alt="">БАНКИ</div>
+          <div class="grid-block"><img class = "grid__img" width ="60px" height = "60px" src="assets/img/rubrikator.png" alt="">РУБРИКАТОР</div>
+        </div>
+      </div>
     <!--Header-->
 
     <header class="header">
@@ -66,7 +116,7 @@
                         Статистика по новым
                     </div>
                     <div class="filter__inner">
-                        <select>
+                        <select class = "filter__vibor">
                             <option value="option1">Месяц</option>
                             <option value="option2">6 Месяц</option>
                             <option value="option3">3 Года</option>
@@ -80,10 +130,7 @@
                         Регион контрагента
                     </div>
                     <div class="filter__inner">
-                        <select>
-                            <option value="option1">Москва</option>
-                            <option value="option2">Питер</option>
-                            <option value="option3">Уфа</option>
+                        <select class = "filter__vibor" id="selectOutput">
                         </select>
                     </div>                   
                 </div>
@@ -106,22 +153,32 @@
     <div class="slider-wrapper">
         <div class="navigation">
             <div class="go-to-page">
-                <p class = "nav__title">Укажите страницу</p>
-                <input type="text" id="page-input" placeholder="№">
-                <button onclick="goToPage()">Go</button>
+              <p class="nav__title">Укажите страницу</p>
+              <input type="text" id="page-input" placeholder="№">
+              <button class="go-button" onclick="goToPage()">Go</button>
             </div>
-            <div class="prev-arrow">&lt;</div>
             <div class="page-numbers">
-                <span>first</span>
-                <span class="active">1</span>
-                <span>2</span>
-                <span>3</span>
-                <span>4</span>
-                <span>5</span>
-                <span>next</span>
+              <button class="prev-button"><<</button>
+              <button class="page-button">first</button>
+              <button class="page-button active">1</button>
+              <button class="page-button">2</button>
+              <button class="page-button">3</button>
+              <button class="page-button">4</button>
+              <button class="page-button">5</button>
+              <button class="page-button">6</button>
+              <button class="page-button">7</button>
+              <button class="page-button">8</button>
+              <button class="page-button">9</button>
+              <button class="page-button">10</button>
+              <button class="page-button">11</button>
+              <button class="page-button">12</button>
+              <button class="page-button">13</button>
+              <button class="page-button">14</button>
+              <button class="page-button">15</button>
+              <button class="page-button">next</button>
+              <button class="next-button">>></button>
             </div>
-            <div class="next-arrow">&gt;</div>
-        </div>        
+        </div>       
         <div class = "table__title">
             Журнал компаний
         </div>
@@ -129,44 +186,45 @@
             <div class="carousel">
               <table id="data-table">
                 <thead>
-                  <tr>
-                    <th><a class = "" href="#" onclick="handleSort(0)">№ | id </a></th>
-                    <th><a class = "" href="#" onclick="handleSort(1)">ИНН Название компании Телефон(ы)</a></th>
-                    <th><a class = "" href="#" onclick="handleSort(2)">Бронь</a></th>
-                    <th><a class = "" href="#" onclick="handleSort(3)">Номер и дата расчета</a></th>
-                    <th><a class = "" href="#" onclick="handleSort(4)">Активные вакансии</a></th>
-                    <th><a class = "" href="#" onclick="handleSort(5)">Отклики</a></th>
-                    <th><a class = "" href="#" onclick="handleSort(6)">Источник объявления</a></th>
-                    <th><a class = "" href="#" onclick="handleSort(7)">Завершенные</a></th>
+                  <tr class = "data-table__heaeder">
+                    <th><a class = "data-table__heaeder__title" href="#" onclick="handleSort(0)">№ | id </a></th>
+                    <th><a class = "data-table__heaeder__title" href="#" onclick="handleSort(1)">ИНН<br> Название компании<br> Телефон(ы)</a></th>
+                    <th><a class = "data-table__heaeder__title" href="#" onclick="handleSort(2)">Бронь</a></th>
+                    <th><a class = "data-table__heaeder__title" href="#" onclick="handleSort(3)">Номер и дата расчета</a></th>
+                    <th><a class = "data-table__heaeder__title" href="#" onclick="handleSort(4)">Активные вакансии</a></th>
+                    <th><a class = "data-table__heaeder__title" href="#" onclick="handleSort(5)">Отклики</a></th>
+                    <th><a class = "data-table__heaeder__title" href="#" onclick="handleSort(6)">Источник объявления</a></th>
+                    <th><a class = "data-table__heaeder__title" href="#" onclick="handleSort(7)">Завершенные</a></th>
                   </tr>
-                  <tr>
+                  <tr class = "search">
                     <td>
-                      <input type="text" id="searchInput1" placeholder="Поиск">
-                      <span id="clearIcon1" onclick="clearSearch(1)">&#10006;</span>
+                      <input class = "search__input" type="text" id="searchInput1" placeholder="Поиск">
                     </td>
                     <td>
-                      <input type="text" id="searchInput2" placeholder="Поиск">
-                      <span id="clearIcon2" onclick="clearSearch(2)">&#10006;</span>
+                      <input class = "search__input"type="text" id="searchInput2" placeholder="Поиск">
                     </td>
                     <td>
-                      <input type="text" id="searchInput3" placeholder="Поиск">
-                      <span id="clearIcon3" onclick="clearSearch(3)">&#10006;</span>
+                        <select class = "search__select">
+                            <option class = "search__select__link" value="option1">Все</option>
+                            <option class = "search__select__link" value="option2">Да</option>
+                            <option class = "search__select__link" value="option3">Нет</option>
+                        </select>
                     </td>
                     <td>
-                      <input type="text" id="searchInput4" placeholder="Поиск">
-                      <span id="clearIcon4" onclick="clearSearch(4)">&#10006;</span>
+                      <input class = "search__input"type="text" id="searchInput4" placeholder="Поиск">
                     </td>
                     <td>
-                      <input type="text" id="searchInput5" placeholder="Поиск">
-                      <span id="clearIcon5" onclick="clearSearch(5)">&#10006;</span>
+                      <input  class = "search__input"type="text" id="searchInput5" placeholder="Поиск">
                     </td>
                     <td>
-                      <input type="text" id="searchInput6" placeholder="Поиск">
-                      <span id="clearIcon6" onclick="clearSearch(6)">&#10006;</span>
+                        <select class = "search__select">
+                            <option class = "search__select__link" value="option1">Все</option>
+                            <option class = "search__select__link" value="option2">Да</option>
+                            <option class = "search__select__link" value="option3">Нет</option>
+                        </select>
                     </td>
                     <td>
-                      <input type="text" id="searchInput7" placeholder="Поиск">
-                      <span id="clearIcon7" onclick="clearSearch(7)">&#10006;</span>
+                      <input class = "search__input" type="text" id="searchInput7" placeholder="Поиск">
                     </td>
                   </tr>
                 </thead>
@@ -178,22 +236,32 @@
         </div>  
         <div class="navigation">
             <div class="go-to-page">
-                <p class = "nav__title">Укажите страницу</p>
-                <input type="text" id="page-input" placeholder="№">
-                <button onclick="goToPage()">Go</button>
+              <p class="nav__title">Укажите страницу</p>
+              <input type="text" id="page-input" placeholder="№">
+              <button class="go-button" onclick="goToPage()">Go</button>
             </div>
-            <div class="prev-arrow">&lt;</div>
             <div class="page-numbers">
-                <span>first</span>
-                <span class="active">1</span>
-                <span>2</span>
-                <span>3</span>
-                <span>4</span>
-                <span>5</span>
-                <span>next</span>
+              <button class="prev-button"><<</button>
+              <button class="page-button">first</button>
+              <button class="page-button active">1</button>
+              <button class="page-button">2</button>
+              <button class="page-button">3</button>
+              <button class="page-button">4</button>
+              <button class="page-button">5</button>
+              <button class="page-button">6</button>
+              <button class="page-button">7</button>
+              <button class="page-button">8</button>
+              <button class="page-button">9</button>
+              <button class="page-button">10</button>
+              <button class="page-button">11</button>
+              <button class="page-button">12</button>
+              <button class="page-button">13</button>
+              <button class="page-button">14</button>
+              <button class="page-button">15</button>
+              <button class="page-button">next</button>
+              <button class="next-button">>></button>
             </div>
-            <div class="next-arrow">&gt;</div>
-        </div>
+        </div>  
     </div>
     
     <!--Popup's-->
