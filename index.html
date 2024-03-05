@@ -265,32 +265,62 @@
     </div>
     
     <!--Popup's-->
-
+    <!--Import-->
+    <span class="close-icon"><img src="assets/img/Component 4.png" alt=""></span>
     <div id="importPopup" class="popup">
-        <button class="close-button" onclick="hidePopup('importPopup')">x</button>
-        <h2>Import Popup</h2>
-        <input type="file" id="xmlFileInput" />
-        <button id="importXmlButton" onclick="importXml()">Import</button>
-      </div>
-      
-      <div id="exportPopup" class="popup">
-        <button class="close-button" onclick="hidePopup('exportPopup')">x</button>
-        <h2>Export Popup</h2>
-      </div>
-      
-      <div id="addPopup" class="popup">
-        <button class="close-button" onclick="hidePopup('addPopup')">x</button>
-        <h2>Add Popup</h2>
-        <input type="text" id="newSchetnomer" placeholder="SCHETNOMER">
-        <input type="text" id="newSchetdata" placeholder="SCHETDATA">
-        <input type="text" id="newInnkomban" placeholder="INNKOMPAN">
-        <input type="text" id="newNazvkomban" placeholder="NAZVKOMPAN">
-        <input type="text" id="newTelef" placeholder="TELEF">
-        <input type="text" id="newElpocht" placeholder="ELPOCHTA">
-        <input type="text" id="newElpochtakadrovik" placeholder="ELPOCHTAKADROVIK">
-        <input type="text" id="newVaknazv" placeholder="VAKNAZV">
-        <button onclick="addNewRow()">ADD A NEW ONE</button>
-      </div>
+        <div class="import__header">
+            <div class = "import__title">
+                <p class = "import__title__text">Импорт компании</p>
+            </div>
+            <div class = "import__heaeder__content">
+                <p class = "import__data">Дата <strong>12.11.2023</strong></p>
+                <p>ФИО оператора: <a class = "import__link" href = "#">Александра Герасимчук</a></p>
+            </div>
+        </div>
+        <div class = "import__body">
+            <div class="import__content">
+                <div class = "content__title">
+                    Выберите путь к файлу
+                </div>
+                <div class = "import__label">
+                    <input type="file" id="xmlFileInput" class="file-input" multiple>
+                    <label for="xmlFileInput" class="file-input-label"><img class = "folder" width = "24px" height = "24px" src = "assets/img/folder.png">Выбрать файлы</label>
+                </div>
+            </div>
+        </div>
+        <div class = "import__footer">
+            <button class = "import__button" id="importXmlButton" onclick="importXml()">Загрузить</button>
+            <button class = "cancle__button" id="importXmlButton" onclick="importXml()">ОТМЕНИТЬ</button>
+        </div>
+    </div>
+    <!--Export-->
+    <span class="close-icon"><img src="assets/img/Component 4.png" alt=""></span>
+    <div id="exportPopup" class="popup">
+        <div class="export__header">
+            <div class="export__title">
+                <p class="export__title__text">Экспорт компании</p>
+            </div>
+            <div class="export__header__content">
+                <p class="export__data">Дата <strong>12.11.2023</strong></p>
+                <p>ФИО оператора: <a class="export__link" href="#">Александра Герасимчук</a></p>
+            </div>
+        </div>
+        <div class="export__body">
+            <div class="export__content">
+                <div class="content__title">
+                    Выберите путь для экспорта
+                </div>
+                <div class="export__label">
+                    <input type="file" id="xmlFileInput" class="file-input" multiple>
+                    <label for="xmlFileInput" class="file-input-label"><img class="folder" width="24px" height="24px" src="assets/img/folder.png">Выбрать файлы</label>
+                </div>
+            </div>
+        </div>
+        <div class="export__footer">
+            <button class="export__button" id="exportXmlButton" onclick="exportXml()">Экспортировать</button>
+            <button class="cancel__button" id="cancelExportButton" onclick="cancelExport()">ОТМЕНИТЬ</button>
+        </div>
+    </div>
 
     <script src = "script.js"></script>
     <script src = "app.js"></script>
