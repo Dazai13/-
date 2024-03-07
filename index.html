@@ -194,7 +194,7 @@
                     <th><a class = "data-table__heaeder__title" href="#" onclick="handleSort(4)">Активные вакансии</a></th>
                     <th><a class = "data-table__heaeder__title" href="#" onclick="handleSort(5)">Отклики</a></th>
                     <th><a class = "data-table__heaeder__title" href="#" onclick="handleSort(6)">Источник объявления</a></th>
-                    <th><a class = "data-table__heaeder__title" href="#" onclick="handleSort(7)">Завершенные</a></th>
+                    <th><a class = "data-table__heaeder__title" href="#" onclick="handleSort(7)">Заве-ршен-ные</a></th>
                   </tr>
                   <tr class = "search">
                     <td>
@@ -293,7 +293,7 @@
           <button class="cancel__button" onclick="cancelImport()">ОТМЕНИТЬ</button>
         </div>
         <span class="close-icon" onclick="cancelImport()"><img src="assets/img/Component 4.png" alt=""></span>
-      </div>
+    </div>
       
     <!--Export-->
 
@@ -310,7 +310,7 @@
         <div class="export__body">
           <div class="export__content">
             <div class="content__title">
-              Выберите путь для экспорта
+                Выберите путь к файлу
             </div>
             <div class="export__label">
               <input type="file" id="xmlFileOutput" class="file-output" multiple>
@@ -323,10 +323,9 @@
           <button class="cancel__button" onclick="cancelExport()">ОТМЕНИТЬ</button>
         </div>
         <span class="close-icon" onclick="cancelExport()"><img src="assets/img/Component 4.png" alt=""></span>
-      </div>
-      <div id="overlay" onclick="closePopup()"></div>
+    </div>
+    <div id="overlay" onclick="closePopup()"></div>
     <script src = "close.js"></script>
     <script src = "script.js"></script>
-    <script src = "app.js"></script>
     </body>
 </html>
