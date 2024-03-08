@@ -323,8 +323,7 @@ color:#DFDC1B;
   justify-content: center;
 }
 .carousel{
-  width: 1700px;
-  height: 690px;
+
 }
 #data-table,tr,td,th {
   border: 2px solid #CBCBCB;
@@ -632,6 +631,7 @@ color:#DFDC1B;
   display: none;
   z-index: 100;
 }
-td {
+.info-column, .calculation-column, .vacancies-column, .source-column {
   white-space: pre-line;
+  vertical-align: top;
 }

@@ -160,7 +160,7 @@
             <div class="page-numbers">
               <button class="prev-button"><<</button>
               <button class="page-button">first</button>
-              <button class="page-button active">1</button>
+              <button class="page-button">1</button>
               <button class="page-button">2</button>
               <button class="page-button">3</button>
               <button class="page-button">4</button>
@@ -289,7 +289,7 @@
           </div>
         </div>
         <div class="import__footer">
-          <button class="import__button" onclick="importXml()">Загрузить</button>
+          <button class="import__button" id = "importXmlButton" onclick="importXml()">Загрузить</button>
           <button class="cancel__button" onclick="cancelImport()">ОТМЕНИТЬ</button>
         </div>
         <span class="close-icon" onclick="cancelImport()"><img src="assets/img/Component 4.png" alt=""></span>
@@ -319,12 +319,13 @@
           </div>
         </div>
         <div class="export__footer">
-          <button class="export__button" onclick="exportXml()">Экспортировать</button>
+          <button class="export__button" onclick="exportToXML()">Экспортировать</button>
           <button class="cancel__button" onclick="cancelExport()">ОТМЕНИТЬ</button>
         </div>
         <span class="close-icon" onclick="cancelExport()"><img src="assets/img/Component 4.png" alt=""></span>
     </div>
     <div id="overlay" onclick="closePopup()"></div>
+    <script src = "assets/js/import.js"></script>
     <script src = "close.js"></script>
     <script src = "script.js"></script>
     </body>
