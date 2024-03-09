@@ -1,6 +1,28 @@
 function importXml() {
     // Код для обработки импорта XML-файлов
   }
+  function openImportPopup() {
+    var importButton = document.getElementById("importButton"); // Замените "importButton" на ID вашей кнопки импорта
+    var importPopup = document.getElementById("importPopup");
+    var overlay = document.getElementById("overlay");
+    
+    importButton.addEventListener("click", function() {
+        importPopup.style.display = "block";
+        overlay.style.display = "block";
+    });
+}
+
+function openExportPopup() {
+    var exportButton = document.getElementById("exportButton"); // Замените "exportButton" на ID вашей кнопки экспорта
+    var exportPopup = document.getElementById("exportPopup");
+    var overlay = document.getElementById("overlay");
+    
+    exportButton.addEventListener("click", function() {
+        exportPopup.style.display = "block";
+        overlay.style.display = "block";
+    });
+}
+
   
   function cancelImport() {
     var importPopup = document.getElementById("importPopup");

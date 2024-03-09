@@ -78,7 +78,7 @@
                                 </div>
                             </td>
                             <td>
-                                <button class="button add-button" onclick="showAddPopup()">+ ADD A NEW ONE</button>
+                                <button class="button add-button" onclick="addNewRow()">+ ADD A NEW ONE</button>
                             </td>
                             <td>
                                 <button class="button add-new-button" onclick="clearFields()"><img class = "deselct__img" src = "assets/img/Deselect.png"> DESELECT</button>
@@ -324,8 +324,64 @@
         </div>
         <span class="close-icon" onclick="cancelExport()"><img src="assets/img/Component 4.png" alt=""></span>
     </div>
-    <div id="overlay" onclick="closePopup()"></div>
+
+    <div id="addPopup" class="popup">
+      <div class="addPopup__header">
+        <div class="addPopup__title">
+          <p class="addPopup__title__text">Добавить компанию</p>
+        </div>
+        <div class="addPopup__header__content">
+          <p class="addPopup__data">Дата <strong>12.11.2023</strong></p>
+          <p>ФИО оператора: <a class="addPopup__link" href="#">Александра Герасимчук</a></p>
+        </div>
+      </div>
+      <div class="addPopup__body">
+        <div class="popup-content">
+          <span class="close-icon" onclick="cancelExport()"><img src="assets/img/Component 4.png" alt=""></span>
+          <div>
+              <label for="innkombanInput">ИНН компании:</label>
+              <input type="text" id="innkombanInput">
+          </div>
+          <div>
+              <label for="nazvkombanInput">Название компании:</label>
+              <input type="text" id="nazvkombanInput">
+          </div>
+          <div>
+              <label for="telefInput">Телефон(ы):</label>
+              <input type="text" id="telefInput">
+          </div>
+          <div>
+              <label for="elpochtInput">Электронная почта:</label>
+              <input type="text" id="elpochtInput">
+          </div>
+          <div>
+              <label for="schetnomerInput">Номер расчета:</label>
+              <input type="text" id="schetnomerInput">
+          </div>
+          <div>
+              <label for="schetdataInput">Дата расчета:</label>
+              <input type="text" id="schetdataInput">
+          </div>
+          <div>
+              <label for="vaknazvInput">Активные вакансии:</label>
+              <input type="text" id="vaknazvInput">
+          </div>
+          <div>
+              <label for="sourceFileInput">Источник объявления:</label>
+              <input type="text" id="sourceFileInput">
+          </div>
+        </div>
+      </div> 
+      <div class="addPopup__footer">
+         <div>
+          <button class="export__button" id="saveNewButton" >Сохранить</button>
+          <button class="cancel__button" id="cancelAddButton" onclick="cancelAdd()">Отмена</button>
+        </div>         
+      </div>   
+    </div>
+
     <script src = "assets/js/import.js"></script>
+    <script src = "add.js"></script>
     <script src = "close.js"></script>
     <script src = "script.js"></script>
     </body>
