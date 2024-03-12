@@ -1,70 +1,63 @@
 function exportToXML() {
-    var table = document.getElementById("data-table");
-    var rows = table.getElementsByTagName("tr");
-  
-    var xmlDoc = document.implementation.createDocument(null, "data");
-  
-    for (var i = 0; i < rows.length; i++) {
-      var cells = rows[i].getElementsByTagName("td");
+  // Создаем XML документ
+  var xmlDocument = document.implementation.createDocument(null, "DATA");
+  var dataElement = xmlDocument.documentElement;
 
-      var rowElement = xmlDoc.createElement("row");
-  
-      for (var j = 0; j < cells.length; j++) {
-        var cellValue = cells[j].textContent.trim();
-        var cellName = "column_" + (j + 1);
+  // Получаем все строки таблицы
+  var tableRows = document.querySelectorAll("#data-table tbody tr");
 
-        var cellElement = xmlDoc.createElement(cellName);
-        cellElement.textContent = cellValue;
+  // Для каждой строки таблицы создаем элемент ROW в XML
+  tableRows.forEach(function(row) {
+      var rowElement = xmlDocument.createElement("ROW");
 
-        rowElement.appendChild(cellElement);
-      }
-      function exportToXML(importedEntries) {
+      // Получаем данные из ячеек строки таблицы
+      var cells = row.querySelectorAll("td");
 
-        var xmlDoc = document.implementation.createDocument(null, "ROOT");
-      
-        var rootElement = xmlDoc.documentElement;
+      // Для каждой ячейки создаем соответствующий элемент в XML
+      cells.forEach(function(cell) {
+          var cellName = cell.dataset.name;
+          var cellValue = cell.textContent.trim();
 
-        importedEntries.forEach(function(entry) {
+          // Создаем элемент с именем ячейки
+          var cellElement = xmlDocument.createElement(cellName);
 
-          var rowElement = xmlDoc.createElement("ROW");
+          // Если ячейка содержит подэлементы
+          if (cellName === "ADRESSOBESEDOVANI" || cellName === "ADRESSORABOTI" || cellName === "TELEF" || cellName === "DOPINFORMS" || cellName === "GAFIK_RABOTI") {
+              // Разбиваем текст ячейки на подэлементы
+              var subElements = cellValue.split("\n").filter(Boolean); // Удаляем пустые строки
 
-          rootElement.appendChild(rowElement);
-
-          for (var key in entry) {
-            if (entry.hasOwnProperty(key)) {
-
-              var dataElement = xmlDoc.createElement(key);
-              dataElement.textContent = entry[key];
-
-              rowElement.appendChild(dataElement);
-            }
+              // Для каждого подэлемента создаем соответствующий элемент в XML
+              subElements.forEach(function(subElement) {
+                  // Создаем элемент с именем подэлемента
+                  var subElementNode = xmlDocument.createElement(subElement);
+                  cellElement.appendChild(subElementNode);
+              });
+          } else {
+              // Создаем текстовый узел с содержимым ячейки и добавляем его в элемент ячейки
+              var textNode = xmlDocument.createTextNode(cellValue);
+              cellElement.appendChild(textNode);
           }
-        });
 
-        var xmlString = new XMLSerializer().serializeToString(xmlDoc);
+          // Добавляем элемент ячейки в элемент строки
+          rowElement.appendChild(cellElement);
+      });
 
-        var link = document.createElement("a");
-        link.setAttribute("href", "data:text/xml;charset=utf-8," + encodeURIComponent(xmlString));
-        link.setAttribute("download", "exported_data.xml");
-        document.body.appendChild(link);
+      // Добавляем элемент строки в элемент данных
+      dataElement.appendChild(rowElement);
+  });
 
-        link.click();
+  // Преобразуем XML документ в строку
+  var serializer = new XMLSerializer();
+  var xmlString = serializer.serializeToString(xmlDocument);
 
-        document.body.removeChild(link);
-      }
-
-      xmlDoc.documentElement.appendChild(rowElement);
-    }
-
-    var xmlString = new XMLSerializer().serializeToString(xmlDoc);
-
-    var link = document.createElement("a");
-    link.setAttribute("href", "data:text/xml;charset=utf-8," + encodeURIComponent(xmlString));
-    link.setAttribute("download", "exported_data.xml");
-    document.body.appendChild(link);
-
-    link.click();
-    document.body.removeChild(link);
-  }
-  exportToXML(importedEntries);
-  
+  // Сохраняем XML строку в файл
+  var blob = new Blob([xmlString], { type: "text/xml" });
+  var url = URL.createObjectURL(blob);
+  var a = document.createElement("a");
+  a.href = url;
+  a.download = "data.xml";
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+}

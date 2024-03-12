@@ -1,0 +1,299 @@
+
+@media (width <= 1100px) {
+    .first-panel > div.control {
+      padding-right: 20px;
+    }
+    .icon.burger {
+      font-size: 26px;
+    }
+    .will-removed {
+      display: none;
+    }
+    .third-panel__tab {
+      flex: 1;
+      text-align: center;
+    }
+    .control-panel__segment-icon {
+      font-size: 25px;
+      font-family: Inter-Bold;
+    }
+  }
+  
+  @media (width <= 880px) {
+    
+    .table__row-item[tooltip]:hover::after {
+      content: none;
+      display: none;
+      border-bottom: none;
+    }
+    div.table.vacancies{
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+    .medium-screen-size__table-name {
+      display: block;
+      width: 100%;
+      margin-top: 20px;
+      font-size: 20px;
+    }
+    div.control {
+      display: flex;
+      padding-left: 18px;
+      padding-right: 50px;
+      height: 50px;
+      width: 100%;
+      box-sizing: border-box;
+      justify-content: end;
+    }
+    .mobile-control__menu-button {
+      display: flex;
+      width: 100%;
+      background-color: var(--blue);
+      flex-direction: row;
+      color: white;
+      align-items: center;
+      justify-content: space-between;
+      padding-left: 25px;
+      padding-right: 25px;
+      height: 50px;
+      box-sizing: border-box;
+      font-size: 18px;
+    }
+    .mobile-control__menu-button > * {
+      color: inherit;
+      font-size: inherit;
+    }
+    .mobile-control__menu-button > span {
+      font-size: 24px;
+      cursor: pointer;
+    }
+    
+  
+    p.date {
+      text-align: start;
+    }
+  
+    div.mobile-tab {
+      margin-top: 10px;
+      background-color: white;
+    }
+  
+  
+    .mobile-control.control > * {
+      font-size: 22px;
+      color: #414f51;
+    }
+    div.title-wrapper {
+      display: none;
+    }
+    .mobile-wrapper__input {
+      display: flex;
+      margin-top: 20px;
+    }
+    p.date {
+      background-color: rgb(245, 245, 245);
+      padding: 10px 15px 10px 15px;
+    }
+    .table-wrapper {
+      padding-left: 20px;
+      padding-right: 20px;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    .caption {
+      color: gray;
+    }
+    .mobile-wrapper-table {
+      display: none;
+    }
+    .mobile-wrapper__row {
+      display: inherit;
+      display: flex;
+      align-items: center;
+      min-height: 50px;
+      margin-left: 15px;
+      margin-right: 15px;
+    }
+    .mobile-wrapper__row-extra-content {
+      padding-left: 5px;
+    }
+    .mobile-wrapper__row:not(.mobile-wrapper__row-vacancy-name) {
+      border-bottom: 1px solid lightgray;
+    }
+    .mobile-wrapper__row-extra-content {
+      display: inherit;
+    }
+    .table.vacancies {
+      display: flex;
+      flex-direction: column;
+      row-gap: 20px;
+      margin-bottom: 20px;
+    }
+    .table__row-item {
+      overflow: hidden;
+      font-size: 18px;
+      height: 100%;
+      border: none;
+    }
+    .table__row-item:not(.non-border) {
+      border-left: 1px solid lightgray;
+    }
+  
+    .mobile-wrapper__row-edit {
+      display: flex !important;
+      flex-direction: row;
+      gap: 20px;
+      justify-content: center;
+      margin-left: 0px;
+    }
+    .row-wrapper:hover > div > div.selectable {
+      background-color: initial;
+    }
+    .row-wrapper:hover > div > div > span.control-edit {
+      color: var(--light-blue);
+    }
+    .icon.control-edit.delete:hover {
+      color: rgb(66, 66, 216);
+    }
+    .mobile-wrapper__row-edit > div {
+      flex: 1;
+    }
+    .mobile-wrapper__row-vacancy-name {
+      grid-area: vacancy-name;
+      background-color: #67d6ef;
+      min-height: 50px;
+      margin: 0;
+    }
+    .table__row-item-vacancy-name {
+      grid-column-start: span 2;
+      box-sizing: border-box;
+      height: 100%;
+      padding-left: 20px;
+      padding-right: 20px;
+      padding-top: 10px;
+      padding-bottom: 10px;
+    }
+    p.table__row-item-vacancy-name-text {
+      color: white;
+    }
+    p.source {
+      box-sizing: border-box;
+      font-size: 18px;
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+    .mobile-wrapper__row-id {
+      grid-area: id;
+    }
+    .mobile-wrapper__row {
+      display: grid;
+      grid-template-columns: 115px 1fr;
+    }
+    .mobile-wrapper__row-number {
+      grid-area: number;
+      grid-template-columns: 115px 1fr;
+      margin-right: 0;
+    }
+    .mobile-wrapper__row-edit {
+      grid-area: edit;
+    }
+    .mobile-wrapper__row-source {
+      grid-area: source;
+    }
+    .mobile-wrapper__row-date {
+      grid-area: date;
+    }
+    .mobile-wrapper__row-frequency{
+      grid-area: frq;
+    }
+    .row-wrapper {
+      grid-auto-rows: minmax(50px, auto);
+      display: grid;
+      grid-template-areas:
+        "vacancy-name vacancy-name vacancy-name vacancy-name"
+        "number number number edit"
+        "id id id id"
+        "source source source source"
+        "date date date date"
+        "frq frq frq frq"
+      /* "edit edit"; */
+    }
+  
+    .row {
+      width: 100%;
+      justify-content: space-between;
+      display: flex;
+      flex-wrap: wrap;
+      row-gap: 20px;
+      height: auto;
+    }
+    #second_specifier {
+      display: none;
+    }
+    *[tooltip]:hover::after {
+      width: fit-content;
+    }
+    .mobile-wrapper__row-extra-content{
+      font-size: 18px;
+    }
+  }
+  
+  
+  
+  @media (width <= 640px) {
+  
+    .mobile-tab {
+      display: none;
+    }
+    .panels {
+      display: flex;
+    }
+    .first-panel {
+      display: flex;
+    }
+    div.control,
+    div.first-panel {
+      display: flex;
+      justify-content: center;
+      padding: 0;
+      margin: 0;
+    }
+  
+    .icon {
+      justify-self: center;
+    }
+    
+    .table__row-item-vacancy-name {
+      width: 100%;
+    }
+    .table__row-item {
+      box-sizing: border-box;
+    }
+    input {
+      height: 50px;
+      box-sizing: border-box;
+    }
+    .table__row-item{
+      font-size: 18px;
+    }
+  
+  }
+  
+  @media (width <= 465px) {
+    .mobile-wrapper__row {
+      display: grid;
+      grid-template-columns: 115px 1fr;
+    }
+    .mobile-wrapper__row-number {
+      grid-area: number;
+      grid-template-columns: 115px 1fr;
+    }
+    .table__row-item > p {
+      font-size: 18px;
+    }
+  
+    .mobile-wrapper__row-extra-content {
+      font-size: 18px;
+    }
+  }
+  

@@ -1,404 +1,202 @@
 <!DOCTYPE html>
-<html>
-<head>
-    <title>Моя HTML страница</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap">
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <!--Line upper-->
-    <div class="line__header">
-        <img src="assets/img/enter.png" width = "32px" height = "32px" alt="" class="enter__logo">Войти
-    </div>
-
-    <div class="main__header">
-        <div class="container">
-            <div class="main__header__inner">
-                <div class="main__header__link">Интерфейс</div>
-                <div class="main__header__link">Соц.сети</div>
-                <div class="main__header__link active">Журналы</div>
-                <div class="main__header__link">Импорт</div>
-                <div class="main__header__link">Экспорт</div>
-                <div class="main__header__link">Пользователи</div>
-                <div class="main__header__link">Email ящики</div>
-                <div class="main__header__link">Ключи.Пароли</div>
-                <div class="main__header__link">Разное</div>
-            </div>
-        </div>
-    </div>
-
-    <div class="grid__header">
-        <div class="grid-row">
-          <div class="grid-block"><img class = "grid__img" width ="60px" height = "60px" src="assets/img/Obiavlenie.png" alt="">Обьявления</div>
-          <div class="grid-block"><img class = "grid__img" width ="60px" height = "60px" src="assets/img/Vakanz.png" alt="">Вакансии</div>
-          <div class="grid-block"><img class = "grid__img" width ="60px" height = "60px" src="assets/img/vakanz_obed.png" alt="">Вакансии ОБЪЕД</div>
-          <div class="grid-block"><img class = "grid__img" width ="60px" height = "60px" src="assets/img/soiskateli.png" alt="">Соискатели</div>
-          <div class="grid-block"><img class = "grid__img" width ="60px" height = "60px" src="assets/img/clarity_talk-bubbles-solid.png" alt="">отклики</div>
-          <div class="grid-block"><img class = "grid__img" width ="60px" height = "60px" src="assets/img/icon-park-solid_edit-name.png" alt="">ФИО</div>
-          <div class="grid-block"><img class = "grid__img" width ="60px" height = "60px" src="assets/img/foundation_address-book.png" alt="">аДРЕСА</div>
-          <div class="grid-block active"><img class = "grid__img" width ="60px" height = "60px" src="assets/img/Group 45.png" alt="">КОМПАНИИ</div>
-        </div>
-        <div class="grid-row">
-          <div class="grid-block"><img class = "grid__img" width ="60px" height = "60px" src="assets/img/Group 15.png" alt="">Учебные заведения</div>
-          <div class="grid-block"><img class = "grid__img" width ="60px" height = "60px" src="assets/img/Group 13.png" alt="">Сокр.Ю.Ф.</div>
-          <div class="grid-block"><img class = "grid__img" width ="60px" height = "60px" src="assets/img/ic_baseline-people.png" alt="">Альтернативные</div>
-          <div class="grid-block"><img class = "grid__img" width ="60px" height = "60px" src="assets/img/ic_baseline-email.png" alt="">Филиалы</div>
-          <div class="grid-block"><img class = "grid__img" width ="60px" height = "60px" src="assets/img/kvalification.png" alt="">Квалификации</div>
-          <div class="grid-block"><img class = "grid__img" width ="60px" height = "60px" src="assets/img/spec.png" alt="">Специальности</div>
-          <div class="grid-block"><img class = "grid__img" width ="60px" height = "60px" src="assets/img/telefon.png" alt="">Телефонные<br> коды</div>
-          <div class="grid-block"><img class = "grid__img" width ="60px" height = "60px" src="assets/img/admin.png" alt="">Администраторы</div>
-        </div>
-        <div class="grid-row">
-          <div class="grid-block"><img class = "grid__img" width ="60px" height = "60px" src="assets/img/Email.png" alt="">email рассылка</div>
-          <div class="grid-block"><img class = "grid__img" width ="60px" height = "60px" src="assets/img/kak__nado.png" alt="">КАК БЫЛО КАК НАДО</div>
-          <div class="grid-block"><img class = "grid__img" width ="60px" height = "60px" src="assets/img/prefix.png" alt="">ПРЕФИКСЫ<br> СЧЕТОВ</div>
-          <div class="grid-block"><img class = "grid__img" width ="60px" height = "60px" src="assets/img/search.png" alt="">ПОИСК</div>
-          <div class="grid-block"><img class = "grid__img" width ="60px" height = "60px" src="assets/img/Bank.png" alt="">БАНКИ</div>
-          <div class="grid-block"><img class = "grid__img" width ="60px" height = "60px" src="assets/img/rubrikator.png" alt="">РУБРИКАТОР</div>
-        </div>
-      </div>
-    <!--Header-->
-
-    <header class="header">
-        <div class="container">
-            <div class="header__inner">
-                <table class="header__table">
-                    <tbody class="header__table__body">
-                        <tr>
-                            <td>
-                                <div class="header__table__content">
-                                    <span>Дата от </span>
-                                    <span class="earliestDate" id="earliestDate"></span>
-                                </div>
-                            </td>
-                            <td>
-                                <div class="header__table__content">
-                                    <span>Дата до</span>
-                                    <span class="latestDate" id="latestDate"></span>
-                                </div>
-                            </td>
-                            <td>
-                                <button class="button add-button" onclick="addNewRow()">+ ADD A NEW ONE</button>
-                            </td>
-                            <td>
-                                <button class="button add-new-button" onclick="clearFields()"><img class = "deselct__img" src = "assets/img/Deselect.png"> DESELECT</button>
-                            </td>
-                            <td>
-                                <div class="header__table__content"><img class = "intotal__img" src = "assets/img/InTotal.png">In Total:<p id="rowCount"><span id="rowCountValue">0</span></p>
-                                </div>
-                              </td>
-                            <td>
-                                <button class="button export-button" onclick="showExportPopup()"><img class = "export__img" src = "assets/img/Export.png">EXPORT</button>
-                            </td>
-                            <td>
-                                <button class="button import-button" onclick="showImportPopup()"><img class = "import__img" src = "assets/img/Import.png">IMPORT</button>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </header>
-
-    <!--Clear Table-->
-
-    <div class = "clear__table">
-        <button class = "button__clear" onclick="">CLEAR THE TABLE</button>
-    </div>
-
-    <!--Filter Table-->
-
-    <div class="filter__table">
-        <div class="container">
-            <div class="filter__table__inner">
-                <div class = "filter__content">
-                    <div class="filter__title">
-                        Статистика по новым
-                    </div>
-                    <div class="filter__inner">
-                        <select class = "filter__vibor">
-                            <option value="option1">Месяц</option>
-                            <option value="option2">6 Месяц</option>
-                            <option value="option3">3 Года</option>
-                            <option value="option4">5 Лет</option>
-                            <option value="option5">10 Лет</option>
-                        </select>
-                    </div>
-                </div>
-                <div class = "filter__content">
-                    <div class="filter__title">
-                        Регион контрагента
-                    </div>
-                    <div class="filter__inner">
-                        <select class = "filter__vibor" id="selectOutput">
-                        </select>
-                    </div>                   
-                </div>
-                <div class = "filter__content">
-                    <div class="filter__title">
-                        Всего новых
-                    </div>
-                    <div class="filter__inner">
-                        <div class="filter__form">
-                            <p>29293</p>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <link rel="stylesheet" href="styles.css" />
+        <link rel="stylesheet" href="media.css"/>
+        <link rel="stylesheet" href="popup.css"/>
+    </head>
+    <body>
+        <main class="main-container">
+            <div class="panels">
+                <div class="first-panel">
+                    <div class="control">
+                        <div class="first-panel__control-exit">
+                            <span class="icon"></span>
+                            <p>Войти</p>
                         </div>
-                    </div>                    
+                    </div>
+                </div>
+                <navbar-elem style="width: 100%"> </navbar-elem>
+            </div>
+            <div class="content-wrapper">
+                <div class="control-panel">
+                  <div class = "control-panel__row">
+                    <div tooltip="добавить новую вакансию" class="control-panel__segment add-a-new-one">
+                        <p class="control-panel__segment-text">ДАТА ОТ <span class="green"></span></p>
+                    </div>
+                    <div tooltip="добавить новую вакансию" class="control-panel__segment date-from">
+                        <p class="control-panel__segment-text">ДАТА ДО <span class="green"></span></p>
+                    </div>
+                    <div tooltip="добавить новую вакансию" class="control-panel__segment add-a-new-one">
+                        <span style="font-weight: bold; font-size: 20px; color: gray" class="control-panel__segment-icon plus">+</span>
+                        <p class="control-panel__segment-text">ADD A NEW ONE</p>
+                    </div>            
+                    <div tooltip="ОЧИСТИТЬ ВСЕ ПОЛЯ БЫСТРОГО ПОИСКА" class="control-panel__segment deselect">
+                        <span class="icon control-panel__segment-icon"></span>
+                        <p class="control-panel__segment-text">DESELECT</p>
+                    </div>
+                    <div tooltip="количество найденных вакансий" class="control-panel__segment in-total">
+                        <span class="icon control-panel__segment-icon"></span>
+                        <p class="control-panel__segment-text">IN TOTAL: <span class="green"></span></p>
+                    </div>
+                    <div tooltip="Экспорт вакансий в xlsx" class="control-panel__segment export-button">
+                      <span class="icon control-panel__segment-icon"></span>
+                      <p class="control-panel__segment-text">EXPORT</p>
+                    </div>
+                    <div tooltip="импорт вакансий из xlsx" class="control-panel__segment import-button">
+                        <span class="icon control-panel__segment-icon"></span>
+                        <p class="control-panel__segment-text">IMPORT</p>
+                    </div>
+                  </div>
+                  <div class = "control-panel__row1">
+                    <div tooltip="удалить вакансии в бд" class="control-panel__segment delete-everything active">
+                        <p class="control-panel__segment-text active">CLEAR THE TABLE</p>
+                    </div>
+                  </div>
                 </div>
             </div>
-        </div>
-    </div>
+            <div class="content-wrapper">
+                <div class="control-select">
+                    <div class="control__select__content">
+                        <p class = "control__select__text">Статистика по новым</p>
+                        <select class = "control__select__enter">
 
-    <!--Table-->
-
-    <div class="slider-wrapper">
-        <div class="navigation">
-            <div class="go-to-page">
-              <p class="nav__title">Укажите страницу</p>
-              <input type="text" id="page-input" placeholder="№">
-              <button class="go-button" onclick="goToPage()">Go</button>
-            </div>
-            <div class="page-numbers">
-              <button class="prev-button"><<</button>
-              <button class="page-button">first</button>
-              <button class="page-button">1</button>
-              <button class="page-button">2</button>
-              <button class="page-button">3</button>
-              <button class="page-button">4</button>
-              <button class="page-button">5</button>
-              <button class="page-button">6</button>
-              <button class="page-button">7</button>
-              <button class="page-button">8</button>
-              <button class="page-button">9</button>
-              <button class="page-button">10</button>
-              <button class="page-button">11</button>
-              <button class="page-button">12</button>
-              <button class="page-button">13</button>
-              <button class="page-button">14</button>
-              <button class="page-button">15</button>
-              <button class="page-button">next</button>
-              <button class="next-button">>></button>
-            </div>
-        </div>       
-        <div class = "table__title">
-            Журнал компаний
-        </div>
-        <div class="slider">
-            <div class="carousel">
-              <table id="data-table">
-                <thead>
-                  <tr class = "data-table__heaeder">
-                    <th><a class = "data-table__heaeder__title" href="#" onclick="handleSort(0)">№ | id </a></th>
-                    <th><a class = "data-table__heaeder__title" href="#" onclick="handleSort(1)">ИНН<br> Название компании<br> Телефон(ы)</a></th>
-                    <th><a class = "data-table__heaeder__title" href="#" onclick="handleSort(2)">Бронь</a></th>
-                    <th><a class = "data-table__heaeder__title" href="#" onclick="handleSort(3)">Номер и дата расчета</a></th>
-                    <th><a class = "data-table__heaeder__title" href="#" onclick="handleSort(4)">Активные вакансии</a></th>
-                    <th><a class = "data-table__heaeder__title" href="#" onclick="handleSort(5)">Отклики</a></th>
-                    <th><a class = "data-table__heaeder__title" href="#" onclick="handleSort(6)">Источник объявления</a></th>
-                    <th><a class = "data-table__heaeder__title" href="#" onclick="handleSort(7)">Заве-ршен-ные</a></th>
-                  </tr>
-                  <tr class = "search">
-                    <td>
-                      <input class = "search__input" type="text" id="searchInput1" placeholder="Поиск">
-                    </td>
-                    <td>
-                      <input class = "search__input"type="text" id="searchInput2" placeholder="Поиск">
-                    </td>
-                    <td>
-                        <select class = "search__select">
-                            <option class = "search__select__link" value="option1">Все</option>
-                            <option class = "search__select__link" value="option2">Да</option>
-                            <option class = "search__select__link" value="option3">Нет</option>
                         </select>
-                    </td>
-                    <td>
-                      <input class = "search__input"type="text" id="searchInput4" placeholder="Поиск">
-                    </td>
-                    <td>
-                      <input  class = "search__input"type="text" id="searchInput5" placeholder="Поиск">
-                    </td>
-                    <td>
-                        <select class = "search__select">
-                            <option class = "search__select__link" value="option1">Все</option>
-                            <option class = "search__select__link" value="option2">Да</option>
-                            <option class = "search__select__link" value="option3">Нет</option>
+                    </div>
+                    <div class="control__select__content">
+                        <p class = "control__select__text">Регион контрагента</p>
+                        <select class = "control__select__enter">
+
                         </select>
-                    </td>
-                    <td>
-                      <input class = "search__input" type="text" id="searchInput7" placeholder="Поиск">
-                    </td>
-                  </tr>
-                </thead>
-                <tbody>
-                  
-                </tbody>
-              </table>
+                    </div>
+                    <div class="control__select__content">
+                        <p class = "control__select__text">Всего новых</p>
+                        <div class = "control__select__enter">0</div>
+                    </div>
+                </div>
             </div>
-        </div>  
-        <div class="navigation">
-            <div class="go-to-page">
-              <p class="nav__title">Укажите страницу</p>
-              <input type="text" id="page-input" placeholder="№">
-              <button class="go-button" onclick="goToPage()">Go</button>
-            </div>
-            <div class="page-numbers">
-              <button class="prev-button"><<</button>
-              <button class="page-button">first</button>
-              <button class="page-button active">1</button>
-              <button class="page-button">2</button>
-              <button class="page-button">3</button>
-              <button class="page-button">4</button>
-              <button class="page-button">5</button>
-              <button class="page-button">6</button>
-              <button class="page-button">7</button>
-              <button class="page-button">8</button>
-              <button class="page-button">9</button>
-              <button class="page-button">10</button>
-              <button class="page-button">11</button>
-              <button class="page-button">12</button>
-              <button class="page-button">13</button>
-              <button class="page-button">14</button>
-              <button class="page-button">15</button>
-              <button class="page-button">next</button>
-              <button class="next-button">>></button>
-            </div>
-        </div>  
-    </div>
-    
-    <!--Popup's-->
-    <!--Import-->
+        </main>
 
-    <div id="importPopup" class="popup">
-        <div class="import__header">
-          <div class="import__title">
-            <p class="import__title__text">Импорт компании</p>
-          </div>
-          <div class="import__header__content">
-            <p class="import__data">Дата <strong>12.11.2023</strong></p>
-            <p>ФИО оператора: <a class="import__link" href="#">Александра Герасимчук</a></p>
-          </div>
-        </div>
-        <div class="import__body">
-          <div class="import__content">
-            <div class="content__title">
-              Выберите путь к файлу
-            </div>
-            <div class="import__label">
-              <input type="file" id="xmlFileInput" class="file-input" multiple>
-              <label for="xmlFileInput" class="file-input-label"><img class="folder" width="24px" height="24px" src="assets/img/folder.png">Выбрать файлы</label>
-            </div>
-          </div>
-        </div>
-        <div class="import__footer">
-          <button class="import__button" id = "importXmlButton" onclick="importXml()">Загрузить</button>
-          <button class="cancel__button" onclick="cancelImport()">ОТМЕНИТЬ</button>
-        </div>
-        <span class="close-icon" onclick="cancelImport()"><img src="assets/img/Component 4.png" alt=""></span>
-    </div>
-      
-    <!--Export-->
+        <section class="content vacancies">
+          <div class="content-wrapper">
+              <div class="mobile-cocntrol-wrapper__go-back">
+                  <span class="icon"></span>
+                  <p>Вакансии</p>
+              </div>
+              <pagination-control></pagination-control>
 
-    <div id="exportPopup" class="popup">
-        <div class="export__header">
-          <div class="export__title">
-            <p class="export__title__text">Экспорт компании</p>
-          </div>
-          <div class="export__header__content">
-            <p class="export__data">Дата <strong>12.11.2023</strong></p>
-            <p>ФИО оператора: <a class="export__link" href="#">Александра Герасимчук</a></p>
-          </div>
-        </div>
-        <div class="export__body">
-          <div class="export__content">
-            <div class="content__title">
-                Выберите путь к файлу
-            </div>
-            <div class="export__label">
-              <input type="file" id="xmlFileOutput" class="file-output" multiple>
-              <label for="xmlFileOutput" class="file-output-label"><img class="folder" width="24px" height="24px" src="assets/img/folder.png">Выбрать папку</label>
-            </div>
-          </div>
-        </div>
-        <div class="export__footer">
-          <button class="export__button" onclick="exportToXML()">Экспортировать</button>
-          <button class="cancel__button" onclick="cancelExport()">ОТМЕНИТЬ</button>
-        </div>
-        <span class="close-icon" onclick="cancelExport()"><img src="assets/img/Component 4.png" alt=""></span>
-    </div>
+              <ads-table></ads-table>
 
-    <div id="addPopup" class="popup">
-      <div class="addPopup__header">
-        <div class="addPopup__title">
-          <p class="addPopup__title__text">Добавить компанию</p>
-        </div>
-        <div class="addPopup__header__content">
-          <p class="addPopup__data">Дата <strong>12.11.2023</strong></p>
-          <p>ФИО оператора: <a class="addPopup__link" href="#">Александра Герасимчук</a></p>
-        </div>
-      </div>
-      <div class="addPopup__body">
-        <span class="close-icon" onclick="cancelExport()"><img src="assets/img/Component 4.png" alt=""></span>
-        <div class="addPopup__popup-content">          
-          <div class = "addPopup__popup-content__input">
-              <label for="innkombanInput">ИНН</label>
-              <input class = "addPopup__input" type="text" id="innkombanInput">
-          </div>
-          <div class = "addPopup__popup-content__input">
-              <label for="">Юредическая форма</label>
-              <input class = "addPopup__input" type="text" id="">
-          </div>
-          <div class = "addPopup__popup-content__input">
-              <label for="nazvkombanInput">Полное название</label>
-              <input class = "addPopup__input" type="text" id="nazvkombanInput">
-          </div>
-          <div class = "addPopup__popup-content__input">
-              <label for="">Сокращеное название</label>
-              <input class = "addPopup__input" type="text" id="">
-          </div>
-          <div class = "addPopup__popup-content__input">
-              <label for="telefInput">Телефон</label>
-              <input class = "addPopup__input" type="text" id="telefInput">
-          </div>
-          <div class = "addPopup__popup-content__input">
-              <label for="emailInput">Email</label>
-              <input class = "addPopup__input" type="text" id="emailInput">
-          </div>
-          <div class = "addPopup__popup-content__input">
-              <label for="adressInput">Адрес</label>
-              <input class = "addPopup__input" type="text" id="adressInput">
-          </div>
-          <div class = "addPopup__popup-content__input">
-              <label for="sourceFileInput">ОКВЕД 1</label>
-              <input class = "addPopup__input" type="text" id="sourceFileInput">
-          </div>
-          <div class = "addPopup__popup-content__input">
-              <label for="schetdataInput">ОКВЕД 2</label>
-              <input class = "addPopup__input" type="text" id="schetdataInput">
-          </div>
-          <div class = "addPopup__popup-content__input">
-              <label for="vaknazvInput">ОКВЕД 3</label>
-              <input class = "addPopup__input" type="text" id="vaknazvInput">
-          </div>
-          <div class = "addPopup__popup-content__input">
-              <label for="sourceFileInput">Статус / Дата ликвидации</label>
-              <input class = "addPopup__input" type="text" id="sourceFileInput">
-          </div>
-          <div class = "addPopup__popup-content__input">
-            <label for="sourceFileInput">Логотип</label>
-            <input class = "addPopup__input" type="text" id="sourceFileInput">
-          </div>
-        </div>
-      </div> 
-      <div class="addPopup__footer">
-         <div>
-          <button class="export__button" id="saveNewButton" >Сохранить</button>
-          <button class="cancel__button" id="cancelAddButton" onclick="cancelAdd()">Отмена</button>
-        </div>         
-      </div>   
-    </div>
+              <div class="title-wrapper">
+                  <h3 class="table-title medium">Журнал вакансий</h3>
+              </div>
 
-    <script src = "assets/js/import.js"></script>
-    <script src = "add.js"></script>
-    <script src = "close.js"></script>
-    <script src = "script.js"></script>
+              <h5 class="medium-screen-size__table-name">Вакансии</h5>
+
+              <div class="mobile-wrapper__input mobile-wrapper__input-vacancy-name">
+                  <span style="color: gray" class="icon"></span
+                  ><input class="mobile" type="text" name="" id="" placeholder="Название вакансии" />
+              </div>
+              <div class="mobile-wrapper__input mobile-wrapper__input-id">
+                  <span style="color: gray" class="icon"></span><input class="mobile" type="text" name="" id="" placeholder="ID" />
+              </div>
+              <div class="mobile-wrapper__input mobile-wrapper__input-source">
+                  <span style="color: gray" class="icon"></span
+                  ><input class="mobile" type="text" name="" id="" placeholder="Источник публикации" />
+              </div>
+              <div class="mobile-wrapper__input mobile-wrapper__input-date">
+                  <span style="color: gray" class="icon"></span><input class="mobile" type="text" name="" id="" placeholder="Дата" />
+              </div>
+          </div>
+          <div class="table-wrapper">
+              <div class="table vacancies">
+                  <div class="mobile-wrapper-table">
+                      <div class="table__row-item title">
+                          <p class="medium">№ | id </p>
+                      </div>
+                      <div class="table__row-item title center id-sort sort">
+                          <p class="medium table__row-title-text">ИНН <br>
+                            Название компании<br>
+                            Телефон(ы)</p>
+                      </div>
+                      <div class="table__row-item title center vacancy-name-sort sort">
+                          <p class="medium table__row-title-text">Бронь</p>
+                      </div>
+                      <div class="table__row-item title center">
+                          <p class="medium">Номер и дата расчета</p>
+                      </div>
+                      <div class="table__row-item title center">
+                          <p class="medium">Активные вакансии</p>
+                      </div>
+                      <div class="table__row-item title center">
+                          <p class="medium">Отклики</p>
+                      </div>
+                      <div class="table__row-item title center source-sort sort">
+                          <p class="medium table__row-title-text">Источник объявления</p>
+                      </div>
+                      <div class="table__row-item title center date-sort sort">
+                          <p class="medium table__row-title-text">Заве-
+                            ршен-
+                            ные</p>
+                      </div>
+
+
+                      <div class="search-wrapper">
+                          <div class="table__row-item title id search"><span class="icon"></span><input type="text" name="" id="" /></div>
+                      </div>
+                      <div class="search-wrapper">
+                          <div class="table__row-item title vacancy-name search">
+                              <span class="icon"></span><input type="text" name="" id="vacancy-name" />
+                          </div>
+                      </div>
+                      <div class="table__row-item title"></div>
+                      <div class="search-wrapper">
+                        <div class="table__row-item title id search"><span class="icon"></span><input type="text" name="" id="" /></div>
+                    </div>
+                    <div class="search-wrapper">
+                        <div class="table__row-item title vacancy-name search">
+                            <span class="icon"></span><input type="text" name="" id="vacancy-name" />
+                        </div>
+                    </div>
+                      <div class="table__row-item title"></div>
+                      <div class="search-wrapper">
+                          <div class="table__row-item title source search"><span class="icon"></span><input type="text" name="" id="" /></div>
+                      </div>
+
+                      <div class="table__row-item title"></div>
+                  </div>
+              </div>
+          </div>
+          <div class="content-wrapper">
+              <pagination-control></pagination-control>
+          </div>
+        </section>
+        <mobile-ui></mobile-ui>
+        <script src="assets/js/eventbus.js"></script>
+        <script src="assets/js/navbar.js"></script>
+        <script src="assets/js/mobile_control.js"></script>
+        <script src="assets/js/ads_table_main.js"></script>
+        <script src="assets/js/main.js"></script>
+        <script src="assets/js/control_panel.js"></script>
+        <script src="assets/js/eventSetup.js"></script>
+        <script src="assets/js/navigatoin.js"></script>
+
+        <!--Popup-->
+        <script src="assets/js/popup/Popups.js"></script>
+        <script src="assets/js/popup/deleteEvrething.js"></script>
+        <script src="assets/js/popup/delete.js"></script>
+        <script src="assets/js/popup/delete__popup.js"></script>
+        <script src="assets/js/popup/import__popup.js"></script>
+        <script src="assets/js/popup/export.js"></script>
+        <script src="assets/js/popup/export__popup.js"></script>
+        <script src="assets/js/popup/addCompany.js"></script>
+        <script src="assets/js/popup/add.js"></script>
+        
+        <script src="assets/js/popup/edit.js"></script>
+
+
     </body>
 </html>
